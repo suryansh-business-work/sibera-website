@@ -1,0 +1,164 @@
+---
+import MobileHeader from "./MobileHeader.astro";
+import { menuData } from "./data/menu-data";
+---
+
+<header class="bg-white shadow-md fixed top-0 left-0 w-full z-50" style="height:64px;">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <a href="/" class="-m-1.5 p-1.5">
+        <span class="sr-only">Botify Life</span>
+        <img
+          src="https://ik.imagekit.io/esdata1/botify/botify-logo-dark.svg"
+          alt="Botify Life Logo"
+          class="h-10 mr-3"
+          style="width: 120px;"
+        />
+      </a>
+    </div>
+    <div class="flex lg:hidden">
+      <button
+        id="mobile-menu-open"
+        type="button"
+        class="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 cursor-pointer"
+      >
+        <span class="sr-only">Open main menu</span>
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-5">
+      {
+        menuData.map((item, idx) =>
+          item.children ? (
+            <div class="relative">
+              <button
+                id={`desktop-submenu-toggle-${idx}`}
+                type="button"
+                class="cursor-pointer flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 px-4 py-2"
+                aria-expanded="false"
+              >
+                <div>{item.icon && <i class={item.icon + " mr-2"} />}</div>
+                <div>{item.name}</div>
+                <div>
+                  <i
+                    class="fa-solid fa-chevron-down text-gray-400 transition-transform"
+                    style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;"
+                  />
+                </div>
+              </button>
+              <div
+                id={`desktop-submenu-${idx}`}
+                class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 hidden"
+              >
+                <div class="p-4">
+                  {item.children.map((child) => (
+                    <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
+                      <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        {child.icon && (
+                          <i
+                            class={
+                              child.icon +
+                              " size-6 text-gray-600 group-hover:text-indigo-600"
+                            }
+                          />
+                        )}
+                      </div>
+                      <div class="flex-auto">
+                        <a
+                          href={child.href}
+                          class="block font-semibold text-gray-900"
+                        >
+                          {child.name}
+                          <span class="absolute inset-0" />
+                        </a>
+                        {child.description && (
+                          <p class="mt-1 text-gray-600">{child.description}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={item.href}
+              class="text-sm/6 font-semibold text-gray-900 px-4 py-2"
+              title={item.name}
+            >
+              {item.icon && <i class={item.icon + " mr-2"} />}
+              {item.name}
+            </a>
+          ),
+        )
+      }
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="https://app.botify.life/login" class="text-sm/6 font-semibold text-gray-900"
+        >Log in <span aria-hidden="true">&rarr;</span></a
+      >
+    </div>
+  </nav>
+  <MobileHeader />
+</header>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll('[id^="desktop-submenu-toggle-"]')
+      .forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const idx = this.id.replace("desktop-submenu-toggle-", "");
+          const submenu = document.getElementById(`desktop-submenu-${idx}`);
+          const expanded = this.getAttribute("aria-expanded") === "true";
+          // Close all other submenus using toggles
+          document
+            .querySelectorAll('[id^="desktop-submenu-toggle-"]')
+            .forEach((otherToggle) => {
+              if (otherToggle !== this) {
+                const otherIdx = otherToggle.id.replace(
+                  "desktop-submenu-toggle-",
+                  "",
+                );
+                const otherSubmenu = document.getElementById(
+                  `desktop-submenu-${otherIdx}`,
+                );
+                otherToggle.setAttribute("aria-expanded", "false");
+                otherSubmenu?.classList.add("hidden");
+                const otherArrow =
+                  otherToggle.querySelector("i.fa-chevron-down");
+                otherArrow?.classList.remove("rotate-180");
+              }
+            });
+          this.setAttribute("aria-expanded", !expanded);
+          submenu.classList.toggle("hidden");
+          // Rotate arrow
+          const arrow = this.querySelector("i.fa-chevron-down");
+          if (arrow) arrow.classList.toggle("rotate-180");
+        });
+        // Prevent submenu click from closing itself
+        const idx = btn.id.replace("desktop-submenu-toggle-", "");
+        const submenu = document.getElementById(`desktop-submenu-${idx}`);
+        submenu?.addEventListener("click", (e) => e.stopPropagation());
+      });
+
+    // Close all submenus when clicking outside
+    document.addEventListener("click", () => {
+      document
+        .querySelectorAll('[id^="desktop-submenu-toggle-"]')
+        .forEach((toggle) => {
+          const idx = toggle.id.replace("desktop-submenu-toggle-", "");
+          const submenu = document.getElementById(`desktop-submenu-${idx}`);
+          const arrow = toggle.querySelector("i.fa-chevron-down");
+          if (submenu && !submenu.classList.contains("hidden")) {
+            submenu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+            arrow?.classList.remove("rotate-180");
+          }
+        });
+    });
+  });
+</script>
