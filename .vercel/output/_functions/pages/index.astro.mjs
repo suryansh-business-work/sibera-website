@@ -2,7 +2,7 @@ import { c as createComponent, m as maybeRenderHead, r as renderTemplate, f as r
 import 'kleur/colors';
 import 'clsx';
 /* empty css                                 */
-import { $ as $$Page } from '../chunks/Page_DeKniRRT.mjs';
+import { $ as $$Page } from '../chunks/Page_DYKitdiO.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$HomeBanner = createComponent(($$result, $$props, $$slots) => {

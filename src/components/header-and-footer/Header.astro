@@ -1,12 +1,28 @@
 ---
-import MobileHeader from "./MobileHeader.astro";
 import { menuData } from "./data/menu-data";
+import MobileHeader from "./MobileHeader.astro";
 import MegaMenu from "./MegaMenu.astro";
+import TopBar from "./TopBar.astro";
+import ProductSubHeader from "./ProductSubHeader.astro";
+
+interface Props {
+  productHeader?: {
+    name: string;
+    themeColor: string;
+  };
+}
+
+const { productHeader } = Astro.props;
 ---
 
-<header class="bg-white shadow-md fixed top-0 left-0 w-full z-50" style="height:64px;">
+<header class="bg-white relative z-50">
+  <!-- 1. Top Bar -->
+  <TopBar />
+
+  <!-- 2. Main Header -->
+  <!-- 2. Main Header -->
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
+    class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 border-b border-gray-100 relative"
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
@@ -23,15 +39,27 @@ import MegaMenu from "./MegaMenu.astro";
     </div>
     <div class="flex lg:hidden">
       <button
-        id="mobile-menu-open"
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 cursor-pointer"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        id="mobile-menu-open"
       >
         <span class="sr-only">Open main menu</span>
-        <i class="fa-solid fa-bars text-xl"></i>
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-5">
+    <div class="hidden lg:flex lg:gap-x-8 lg:items-center absolute left-1/2 -translate-x-1/2">
       {
         menuData.map((item, idx) => {
           if (item.name === "Products") {
@@ -62,50 +90,35 @@ import MegaMenu from "./MegaMenu.astro";
           }
 
           return item.children ? (
-            <div class="relative">
+            <div class="relative group">
               <button
-                id={`desktop-submenu-toggle-${idx}`}
                 type="button"
-                class="cursor-pointer flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 px-4 py-2"
+                class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 outline-none"
                 aria-expanded="false"
               >
-                <div>{item.icon && <i class={item.icon + " mr-2"} />}</div>
-                <div>{item.name}</div>
-                <div>
-                  <i
-                    class="fa-solid fa-chevron-down text-gray-400 transition-transform"
-                    style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;"
+                {item.name}
+                <svg
+                  class="h-5 w-5 flex-none text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
                   />
-                </div>
+                </svg>
               </button>
-              <div
-                id={`desktop-submenu-${idx}`}
-                class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 hidden"
-              >
+              <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div class="p-4">
                   {item.children.map((child) => (
-                    <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                      <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        {child.icon && (
-                          <i
-                            class={
-                              child.icon +
-                              " size-6 text-gray-600 group-hover:text-indigo-600"
-                            }
-                          />
-                        )}
-                      </div>
+                    <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div class="flex-auto">
-                        <a
-                          href={child.href}
-                          class="block font-semibold text-gray-900"
-                        >
+                        <a href={child.href} class="block font-semibold text-gray-900">
                           {child.name}
-                          <span class="absolute inset-0" />
+                          <span class="absolute inset-0"></span>
                         </a>
-                        {child.description && (
-                          <p class="mt-1 text-gray-600">{child.description}</p>
-                        )}
                       </div>
                     </div>
                   ))}
@@ -113,12 +126,7 @@ import MegaMenu from "./MegaMenu.astro";
               </div>
             </div>
           ) : (
-            <a
-              href={item.href}
-              class="text-sm/6 font-semibold text-gray-900 px-4 py-2"
-              title={item.name}
-            >
-              {item.icon && <i class={item.icon + " mr-2"} />}
+            <a href={item.href} class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
               {item.name}
             </a>
           );
@@ -126,68 +134,19 @@ import MegaMenu from "./MegaMenu.astro";
       }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="http://localhost:5173/login" class="text-sm/6 font-semibold text-gray-900"
-        >Log in <span aria-hidden="true">&rarr;</span></a
-      >
+      <a href="/login" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+        Log in <span aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </nav>
+
+  <!-- 3. Product Sub-Header (Conditional) -->
+  {productHeader && (
+    <ProductSubHeader 
+        productName={productHeader.name} 
+        themeColor={productHeader.themeColor} 
+    />
+  )}
+
   <MobileHeader />
 </header>
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    document
-      .querySelectorAll('[id^="desktop-submenu-toggle-"]')
-      .forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          const idx = this.id.replace("desktop-submenu-toggle-", "");
-          const submenu = document.getElementById(`desktop-submenu-${idx}`);
-          const expanded = this.getAttribute("aria-expanded") === "true";
-          // Close all other submenus using toggles
-          document
-            .querySelectorAll('[id^="desktop-submenu-toggle-"]')
-            .forEach((otherToggle) => {
-              if (otherToggle !== this) {
-                const otherIdx = otherToggle.id.replace(
-                  "desktop-submenu-toggle-",
-                  "",
-                );
-                const otherSubmenu = document.getElementById(
-                  `desktop-submenu-${otherIdx}`,
-                );
-                otherToggle.setAttribute("aria-expanded", "false");
-                otherSubmenu?.classList.add("hidden");
-                const otherArrow =
-                  otherToggle.querySelector("i.fa-chevron-down");
-                otherArrow?.classList.remove("rotate-180");
-              }
-            });
-          this.setAttribute("aria-expanded", !expanded);
-          submenu.classList.toggle("hidden");
-          // Rotate arrow
-          const arrow = this.querySelector("i.fa-chevron-down");
-          if (arrow) arrow.classList.toggle("rotate-180");
-        });
-        // Prevent submenu click from closing itself
-        const idx = btn.id.replace("desktop-submenu-toggle-", "");
-        const submenu = document.getElementById(`desktop-submenu-${idx}`);
-        submenu?.addEventListener("click", (e) => e.stopPropagation());
-      });
-
-    // Close all submenus when clicking outside
-    document.addEventListener("click", () => {
-      document
-        .querySelectorAll('[id^="desktop-submenu-toggle-"]')
-        .forEach((toggle) => {
-          const idx = toggle.id.replace("desktop-submenu-toggle-", "");
-          const submenu = document.getElementById(`desktop-submenu-${idx}`);
-          const arrow = toggle.querySelector("i.fa-chevron-down");
-          if (submenu && !submenu.classList.contains("hidden")) {
-            submenu.classList.add("hidden");
-            toggle.setAttribute("aria-expanded", "false");
-            arrow?.classList.remove("rotate-180");
-          }
-        });
-    });
-  });
-</script>

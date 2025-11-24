@@ -1,5 +1,5 @@
 import { c as createComponent, b as createAstro, d as defineStyleVars, m as maybeRenderHead, a as addAttribute, e as renderSlot, r as renderTemplate } from './astro/server_DxVpntjF.mjs';
-import { g as getThemeByCategory } from './Page_DeKniRRT.mjs';
+import { g as getThemeByCategory } from './Page_DYKitdiO.mjs';
 /* empty css                          */
 import 'clsx';
 

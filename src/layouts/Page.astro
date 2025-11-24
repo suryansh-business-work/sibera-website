@@ -1,45 +1,64 @@
 ---
-import Footer from "../components/header-and-footer/Footer.astro";
 import Header from "../components/header-and-footer/Header.astro";
-import DynamicBreadcrumb from "../components/dynamic-components/DynamicBreadcrumb.astro";
-import "./../styles/global.css";
-import "./../styles/global.scss";
-import NewsletterSection from "../components/NewsletterSection.astro";
+import Footer from "../components/header-and-footer/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  productHeader?: {
+    name: string;
+    themeColor: string;
+  };
+}
 
 const {
-	title = "Sibera - All-in-one Business Management",
-	description = "Sibera is a comprehensive business management solution offering Support, Tasks, File Manager, Invoices, Time Tracking, and IoT integration.",
-	image = "/favicon.svg",
-	pageUrl="/"
+  title,
+  description = "Sibera - The Future of Work",
+  image = "/images/og-image.png",
+  productHeader
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="https://sibera.work/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={image} />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
-	</head>
-	<body>
-		<Header />
-		<main class="pt-16">
-			<DynamicBreadcrumb url={pageUrl} />
-			<slot />
-		</main>
-		<NewsletterSection />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="https://sibera.work/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <Header productHeader={productHeader} />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>

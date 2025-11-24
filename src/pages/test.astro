@@ -1,0 +1,15 @@
+---
+import Page from "../layouts/Page.astro";
+
+const message = "Server is working correctly";
+---
+
+<Page title="Test Page">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-4">Server Test</h1>
+      <p class="text-xl">{message}</p>
+      <p class="mt-4">If you see this, the server is running.</p>
+    </div>
+  </div>
+</Page>
