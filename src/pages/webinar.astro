@@ -1,0 +1,226 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const upcomingWebinars = [
+  {
+    title: "Getting Started with Sibera",
+    date: "December 15, 2024",
+    time: "2:00 PM EST",
+    duration: "60 min",
+    presenter: "Sarah Johnson, Product Manager",
+    topics: ["Platform Overview", "Key Features", "Best Practices", "Q&A"]
+  },
+  {
+    title: "Advanced Workflow Automation",
+    date: "December 22, 2024",
+    time: "11:00 AM EST",
+    duration: "90 min",
+    presenter: "Michael Chen, Solutions Architect",
+    topics: ["Custom Workflows", "Automation Rules", "Integration Patterns", "Use Cases"]
+  },
+  {
+    title: "Scaling Your Business with Sibera",
+    date: "January 5, 2025",
+    time: "3:00 PM EST",
+    duration: "45 min",
+    presenter: "Emily Rodriguez, Growth Expert",
+    topics: ["Growth Strategies", "Team Management", "Performance Optimization", "Success Stories"]
+  }
+];
+
+const pastWebinars = [
+  { title: "Introduction to Sibera Platform", views: "2.5k", duration: "55 min" },
+  { title: "Task Management Masterclass", views: "1.8k", duration: "70 min" },
+  { title: "Integrating Third-Party Tools", views: "1.2k", duration: "60 min" },
+  { title: "IoT Solutions with Sibera", views: "950", duration: "80 min" }
+];
+---
+
+<Page
+  title="Webinars | Sibera"
+  description="Join our live webinars to learn about Sibera features, best practices, and success strategies."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Sibera Webinars
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Learn from our experts through live sessions, Q&As, and on-demand recordings
+        </p>
+      </div>
+
+      <!-- Upcoming Webinars -->
+      <div class="mb-20">
+        <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">
+          Upcoming Webinars
+        </h2>
+        
+        <div class="space-y-8">
+          {upcomingWebinars.map((webinar, index) => (
+            <div class={`bg-white rounded-2xl shadow-lg overflow-hidden ${index === 0 ? 'border-4 border-blue-600' : 'border-2 border-gray-100'}`}>
+              {index === 0 && (
+                <div class="bg-blue-600 text-white text-center py-2 px-4 text-sm font-bold">
+                  REGISTER TODAY
+                </div>
+              )}
+              
+              <div class="p-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                  <!-- Left: Details -->
+                  <div class="md:col-span-2">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">{webinar.title}</h3>
+                    <div class="flex flex-wrap gap-6 mb-6 text-gray-600">
+                      <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calendar text-blue-600"></i>
+                        <span>{webinar.date}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-clock text-blue-600"></i>
+                        <span>{webinar.time} ({webinar.duration})</span>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                      <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                          <i class="fa-solid fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                          <div class="font-semibold text-gray-900">{webinar.presenter}</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 class="font-bold text-gray-900 mb-3">What You'll Learn:</h4>
+                      <ul class="space-y-2">
+                        {webinar.topics.map((topic) => (
+                          <li class="flex items-start gap-2 text-gray-600">
+                            <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                            {topic}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <!-- Right: Register -->
+                  <div class="flex flex-col justify-center">
+                    <div class="bg-gray-50 rounded-xl p-6 text-center">
+                      <div class="text-4xl font-bold text-blue-600 mb-2">Free</div>
+                      <p class="text-gray-600 mb-6">Limited seats available</p>
+                      <a
+                        href="#register"
+                        class={styleConfig.buttons.primary + " w-full justify-center mb-4"}
+                      >
+                        Register Now
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                      </a>
+                      <button class="text-blue-600 text-sm hover:underline">
+                        Add to Calendar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Past Webinars (On-Demand) -->
+      <div class="mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">
+          Watch Past Webinars
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          {pastWebinars.map((webinar) => (
+            <a href="#" class="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all group">
+              <div class="flex items-start gap-4">
+                <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors">
+                  <i class="fa-solid fa-play text-blue-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600">{webinar.title}</h4>
+                  <div class="flex items-center gap-4 text-sm text-gray-600">
+                    <span class="flex items-center gap-1">
+                      <i class="fa-solid fa-eye"></i>
+                      {webinar.views} views
+                    </span>
+                    <span class="flex items-center gap-1">
+                      <i class="fa-solid fa-clock"></i>
+                      {webinar.duration}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <div id="register" class="bg-blue-600 rounded-2xl p-12 text-white">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-4xl font-bold mb-6 text-center">
+            Register for a Webinar
+          </h2>
+          <p class="text-xl text-blue-100 mb-8 text-center">
+            Fill out the form below to reserve your spot
+          </p>
+          
+          <form class="space-y-6" name="webinar-registration" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="webinar-registration" />
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name *"
+                class="px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email Address *"
+                class="px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+              />
+            </div>
+            
+            <input
+              type="text"
+              name="company"
+              placeholder="Company Name"
+              class="w-full px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+            />
+            
+            <select
+              name="webinar"
+              required
+              class="w-full px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white focus:bg-white/20 focus:outline-none"
+            >
+              <option value="">Select a Webinar *</option>
+              {upcomingWebinars.map((webinar) => (
+                <option value={webinar.title}>{webinar.title} - {webinar.date}</option>
+              ))}
+            </select>
+            
+            <button
+              type="submit"
+              class="w-full px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+            >
+              Register Now
+              <i class="fa-solid fa-check ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Page>

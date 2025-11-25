@@ -1,0 +1,135 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const solutions = [
+  {
+    title: "Custom Workflows",
+    description:
+      "Build automated workflows tailored to your business processes",
+    icon: "diagram-project",
+  },
+  {
+    title: "Industry-Specific Features",
+    description: "Get features designed for your specific industry needs",
+    icon: "industry",
+  },
+  {
+    title: "White-Label Solutions",
+    description: "Brand Sibera as your own with custom branding and domains",
+    icon: "palette",
+  },
+  {
+    title: "Custom Integrations",
+    description: "Connect with any system or tool your business uses",
+    icon: "plug",
+  },
+  {
+    title: "Dedicated Infrastructure",
+    description: "Get your own isolated environment for maximum security",
+    icon: "server",
+  },
+  {
+    title: "Custom Development",
+    description: "Our team builds exactly what you need",
+    icon: "code",
+  },
+];
+---
+
+<Page
+  title="Customizable Solutions | Sibera"
+  description="Tailor Sibera to your exact business needs with our customizable solutions and development services."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Customizable Solutions
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Every business is unique. Let us customize Sibera to fit your exact
+          needs.
+        </p>
+      </div>
+
+      <!-- Solutions Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {
+          solutions.map((solution) => (
+            <div class="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-500 hover:shadow-lg transition-all">
+              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <i
+                  class={`fa-solid fa-${solution.icon} text-blue-600 text-2xl`}
+                />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {solution.title}
+              </h3>
+              <p class="text-gray-600">{solution.description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Process Section -->
+      <div class="bg-gray-50 rounded-2xl p-12 mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+          Our Customization Process
+        </h2>
+        <div class="grid md:grid-cols-4 gap-8">
+          {
+            [
+              {
+                step: "1",
+                title: "Discovery",
+                desc: "We learn about your needs",
+              },
+              { step: "2", title: "Design", desc: "Create a custom solution" },
+              {
+                step: "3",
+                title: "Development",
+                desc: "Build and test features",
+              },
+              { step: "4", title: "Deployment", desc: "Launch and support" },
+            ].map((phase) => (
+              <div class="text-center">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  {phase.step}
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">{phase.title}</h4>
+                <p class="text-sm text-gray-600">{phase.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="bg-blue-600 rounded-2xl p-12 text-white text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Ready to Build Your Custom Solution?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8">
+          Let's discuss how we can tailor Sibera to your business
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+          >
+            Contact Sales
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a
+            href="/demo"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border border-white/30"
+          >
+            Schedule Demo
+            <i class="fa-solid fa-calendar"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Page>

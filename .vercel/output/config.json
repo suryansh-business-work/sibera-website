@@ -24,6 +24,14 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/academy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/affiliate/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/all-products/?$",
 			"dest": "_render"
 		},
@@ -41,6 +49,46 @@
 		},
 		{
 			"src": "^/contact/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/copyright/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/custom-solutions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/customers/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/demo/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/errors/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/faq/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/forum/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/free-tools/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/hire-developers/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/partners/?$",
 			"dest": "_render"
 		},
 		{
@@ -88,11 +136,31 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/sitemap/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/sitemap\\.xml/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/startups/?$",
 			"dest": "_render"
 		},
 		{
+			"src": "^/support/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/trial/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/webinar/?$",
 			"dest": "_render"
 		},
 		{

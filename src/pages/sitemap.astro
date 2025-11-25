@@ -1,0 +1,106 @@
+---
+import Page from "../layouts/Page.astro";
+
+const sitePages = [
+  {
+    category: "Main Pages",
+    pages: [
+      { name: "Home", url: "/" },
+      { name: "About Us", url: "/about" },
+      { name: "Pricing", url: "/pricing" },
+      { name: "Contact", url: "/contact" },
+      { name: "Blog", url: "/blog" },
+      { name: "Careers", url: "/careers" },
+    ],
+  },
+  {
+    category: "Products",
+    pages: [{ name: "All Products", url: "/all-products" }],
+  },
+  {
+    category: "Resources",
+    pages: [
+      { name: "FAQ", url: "/faq" },
+      { name: "Support Center", url: "/support" },
+      { name: "Academy", url: "/academy" },
+      { name: "Knowledge Base", url: "/forum" },
+      { name: "Free Tools", url: "/free-tools" },
+      { name: "Webinars", url: "/webinar" },
+    ],
+  },
+  {
+    category: "Programs",
+    pages: [
+      { name: "Sibera for Startups", url: "/startups" },
+      { name: "Affiliate Program", url: "/affiliate" },
+      { name: "Partner Program", url: "/partners" },
+    ],
+  },
+  {
+    category: "Solutions",
+    pages: [
+      { name: "Customer Stories", url: "/customers" },
+      { name: "Customizable Solutions", url: "/custom-solutions" },
+      { name: "Hire Sibera Developers", url: "/hire-developers" },
+    ],
+  },
+  {
+    category: "Get Started",
+    pages: [
+      { name: "Start Free Trial", url: "/trial" },
+      { name: "Schedule a Demo", url: "/demo" },
+    ],
+  },
+  {
+    category: "Legal",
+    pages: [
+      { name: "Privacy Policy", url: "/policies/privacy" },
+      { name: "Terms of Service", url: "/policies/terms" },
+      { name: "Cookie Policy", url: "/policies/cookies" },
+      { name: "Data Policy", url: "/policies/data" },
+      { name: "Copyright Claims", url: "/copyright" },
+    ],
+  },
+];
+---
+
+<Page
+  title="Sitemap | Sibera"
+  description="Browse all pages on the Sibera website. Find what you're looking for quickly."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 text-center">
+        Sitemap
+      </h1>
+      <p class="text-xl text-gray-600 text-center mb-16">
+        Browse all pages on our website
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {
+          sitePages.map((section) => (
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-500">
+                {section.category}
+              </h2>
+              <ul class="space-y-3">
+                {section.pages.map((page) => (
+                  <li>
+                    <a
+                      href={page.url}
+                      class="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-2"
+                    >
+                      <i class="fa-solid fa-arrow-right text-xs" />
+                      {page.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Page>

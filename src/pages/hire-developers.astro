@@ -1,0 +1,206 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const services = [
+  {
+    title: "Custom Development",
+    description: "Build custom features and modules tailored to your needs",
+    icon: "code",
+    skills: ["Custom Modules", "API Development", "Integrations"],
+  },
+  {
+    title: "Implementation & Setup",
+    description: "Get expert help setting up and configuring Sibera",
+    icon: "gear",
+    skills: ["Installation", "Configuration", "Data Migration"],
+  },
+  {
+    title: "Training & Onboarding",
+    description: "Train your team to use Sibera effectively",
+    icon: "graduation-cap",
+    skills: ["User Training", "Admin Training", "Best Practices"],
+  },
+  {
+    title: "Ongoing Support",
+    description: "Dedicated developer support for your organization",
+    icon: "headset",
+    skills: ["Bug Fixes", "Performance Tuning", "Updates"],
+  },
+];
+
+const developers = [
+  { skill: "Full-Stack Development", icon: "laptop-code" },
+  { skill: "API Integration", icon: "plug" },
+  { skill: "Database Design", icon: "database" },
+  { skill: "UI/UX Customization", icon: "palette" },
+  { skill: "Mobile Development", icon: "mobile" },
+  { skill: "DevOps & Deployment", icon: "server" },
+];
+---
+
+<Page
+  title="Hire Sibera Developers | Sibera"
+  description="Hire expert Sibera developers for custom development, implementation, and ongoing support."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Hire Sibera Developers
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Get expert help from certified Sibera developers for custom
+          development, implementation, and support
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {
+          services.map((service) => (
+            <div class="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <i
+                  class={`fa-solid fa-${service.icon} text-blue-600 text-2xl`}
+                />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 mb-4 text-sm">{service.description}</p>
+              <ul class="space-y-2">
+                {service.skills.map((skill) => (
+                  <li class="flex items-center gap-2 text-sm text-gray-600">
+                    <i class="fa-solid fa-check text-green-500" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Developer Skills -->
+      <div class="bg-gray-50 rounded-2xl p-12 mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+          Our Developers Specialize In
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            developers.map((dev) => (
+              <div class="flex items-center gap-4 bg-white p-6 rounded-xl">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class={`fa-solid fa-${dev.icon} text-blue-600`} />
+                </div>
+                <span class="font-semibold text-gray-900">{dev.skill}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+          How It Works
+        </h2>
+        <div class="grid md:grid-cols-4 gap-8">
+          {
+            [
+              {
+                step: "1",
+                title: "Consultation",
+                desc: "Discuss your requirements",
+              },
+              {
+                step: "2",
+                title: "Match",
+                desc: "We assign the right developer",
+              },
+              {
+                step: "3",
+                title: "Development",
+                desc: "Work begins on your project",
+              },
+              {
+                step: "4",
+                title: "Support",
+                desc: "Ongoing maintenance & updates",
+              },
+            ].map((phase) => (
+              <div class="text-center">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  {phase.step}
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">{phase.title}</h4>
+                <p class="text-sm text-gray-600">{phase.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-blue-600 rounded-2xl p-12 text-white">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-4xl font-bold mb-6 text-center">Get Started Today</h2>
+          <p class="text-xl text-blue-100 mb-8 text-center">
+            Fill out the form below and we'll match you with the perfect
+            developer
+          </p>
+
+          <form
+            class="space-y-6"
+            name="hire-developer"
+            method="POST"
+            data-netlify="true"
+          >
+            <input type="hidden" name="form-name" value="hire-developer" />
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name *"
+                class="px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email Address *"
+                class="px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+              />
+            </div>
+
+            <input
+              type="text"
+              name="company"
+              placeholder="Company Name"
+              class="w-full px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none"
+            />
+
+            <textarea
+              name="project-details"
+              rows="4"
+              required
+              placeholder="Tell us about your project *"
+              class="w-full px-4 py-3 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-blue-200 focus:bg-white/20 focus:outline-none resize-vertical"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="w-full px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+            >
+              Submit Request
+              <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Page>

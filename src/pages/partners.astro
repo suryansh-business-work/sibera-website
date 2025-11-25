@@ -1,0 +1,451 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const partnerTypes = [
+  {
+    name: "Reseller Partner",
+    icon: "store",
+    description: "Sell Sibera to your customers and earn recurring revenue",
+    benefits: [
+      "Up to 30% commission on sales",
+      "Dedicated partner portal",
+      "Sales enablement materials",
+      "Co-marketing opportunities",
+    ],
+  },
+  {
+    name: "Technology Partner",
+    icon: "plug",
+    description: "Integrate your solution with Sibera platform",
+    benefits: [
+      "Listed in marketplace",
+      "Technical documentation",
+      "Joint go-to-market strategy",
+      "API & integration support",
+    ],
+  },
+  {
+    name: "Referral Partner",
+    icon: "handshake",
+    description: "Refer clients and earn rewards for successful conversions",
+    benefits: [
+      "20% referral commission",
+      "Easy referral tracking",
+      "No technical requirements",
+      "Quick approval process",
+    ],
+  },
+  {
+    name: "Agency Partner",
+    icon: "users-gear",
+    description: "Implement and support Sibera for your clients",
+    benefits: [
+      "Implementation support",
+      "Training & certification",
+      "Partner discounts",
+      "Priority support access",
+    ],
+  },
+];
+
+const benefits = [
+  {
+    icon: "chart-line",
+    title: "Grow Revenue",
+    desc: "Expand your offerings with Sibera",
+  },
+  { icon: "trophy", title: "Get Recognized", desc: "Join our partner network" },
+  {
+    icon: "handshake-simple",
+    title: "Collaborate",
+    desc: "Work with our team",
+  },
+  {
+    icon: "graduation-cap",
+    title: "Learn & Grow",
+    desc: "Access training resources",
+  },
+  { icon: "headset", title: "Get Support", desc: "Dedicated partner support" },
+  { icon: "rocket", title: "Scale Fast", desc: "Grow your business with us" },
+];
+---
+
+<Page
+  title="Partner Program | Sibera"
+  description="Join the Sibera Partner Program and grow your business with us. Become a reseller, technology, referral, or agency partner."
+>
+  <!-- Hero Section -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Sibera Partner Program
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Partner with Sibera to expand your business, increase revenue, and
+          deliver more value to your customers
+        </p>
+        <a href="#apply" class={styleConfig.buttons.primary + " text-lg"}>
+          Become a Partner
+          <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid md:grid-cols-4 gap-8 mb-16">
+        {
+          [
+            { number: "500+", label: "Active Partners" },
+            { number: "30%", label: "Avg. Commission" },
+            { number: "150+", label: "Countries" },
+            { number: "98%", label: "Partner Satisfaction" },
+          ].map((stat) => (
+            <div class="text-center">
+              <div class="text-4xl font-bold text-blue-600 mb-2">
+                {stat.number}
+              </div>
+              <div class="text-gray-600">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Types -->
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Choose Your Partnership Type
+        </h2>
+        <p class="text-xl text-gray-600">
+          Select the partnership model that fits your business
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          partnerTypes.map((type) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-gray-100 hover:border-blue-500">
+              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <i class={`fa-solid fa-${type.icon} text-blue-600 text-2xl`} />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">{type.name}</h3>
+              <p class="text-gray-600 mb-6">{type.description}</p>
+              <ul class="space-y-3">
+                {type.benefits.map((benefit) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <i class="fa-solid fa-check text-green-500 mt-1 flex-shrink-0" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Why Partner with Sibera?
+        </h2>
+        <p class="text-xl text-gray-600">
+          Join a thriving ecosystem of partners
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class="flex items-start gap-4 p-6 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class={`fa-solid fa-${benefit.icon} text-blue-600`} />
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">{benefit.title}</h4>
+                <p class="text-sm text-gray-600">{benefit.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          How to Get Started
+        </h2>
+        <p class="text-xl text-gray-600">Simple process to become a partner</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        {
+          [
+            { step: "1", title: "Apply", desc: "Submit your application" },
+            { step: "2", title: "Review", desc: "We review your application" },
+            { step: "3", title: "Onboard", desc: "Get trained and certified" },
+            { step: "4", title: "Grow", desc: "Start earning and scaling" },
+          ].map((phase, index) => (
+            <div class="text-center relative">
+              {index < 3 && (
+                <div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200" />
+              )}
+              <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10">
+                {phase.step}
+              </div>
+              <h4 class="font-bold text-gray-900 mb-2">{phase.title}</h4>
+              <p class="text-sm text-gray-600">{phase.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Resources -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Partner Resources</h2>
+        <p class="text-xl text-gray-600">Everything you need to succeed</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          [
+            {
+              icon: "book",
+              title: "Partner Portal",
+              desc: "Access resources and track performance",
+            },
+            {
+              icon: "certificate",
+              title: "Certification",
+              desc: "Get certified on Sibera platform",
+            },
+            {
+              icon: "presentation-screen",
+              title: "Marketing Materials",
+              desc: "Sales collateral and assets",
+            },
+            {
+              icon: "users",
+              title: "Community",
+              desc: "Connect with other partners",
+            },
+            {
+              icon: "headset",
+              title: "Partner Support",
+              desc: "Dedicated support team",
+            },
+            {
+              icon: "chart-mixed",
+              title: "Analytics",
+              desc: "Track your performance",
+            },
+          ].map((resource) => (
+            <div class="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <i
+                  class={`fa-solid fa-${resource.icon} text-blue-600 text-xl`}
+                />
+              </div>
+              <h4 class="font-bold text-gray-900 mb-2">{resource.title}</h4>
+              <p class="text-gray-600 text-sm">{resource.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section id="apply" class="py-20 px-4 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-6">Apply to Become a Partner</h2>
+        <p class="text-xl text-blue-100">
+          Fill out the form below and we'll get back to you within 48 hours
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 md:p-12">
+        <form
+          class="space-y-6"
+          name="partner-application"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="partner-application" />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">
+                First Name *
+              </label>
+              <input
+                type="text"
+                name="first-name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">
+                Last Name *
+              </label>
+              <input
+                type="text"
+                name="last-name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Company Name *
+            </label>
+            <input
+              type="text"
+              name="company"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Partnership Type *
+            </label>
+            <select
+              name="partner-type"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="">Select partnership type</option>
+              <option value="reseller">Reseller Partner</option>
+              <option value="technology">Technology Partner</option>
+              <option value="referral">Referral Partner</option>
+              <option value="agency">Agency Partner</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Company Website
+            </label>
+            <input
+              type="url"
+              name="website"
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Tell us about your business *
+            </label>
+            <textarea
+              name="business-description"
+              rows="4"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none resize-vertical"
+            ></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="partner-terms"
+              name="terms"
+              required
+              class="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label for="partner-terms" class="text-sm text-gray-700">
+              I agree to the Partner Program <a
+                href="/policies/terms"
+                class="text-blue-600 hover:underline font-medium"
+                >Terms and Conditions</a
+              >
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg"
+          >
+            Submit Application
+            <i class="fa-solid fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Partner FAQ</h2>
+      </div>
+
+      <div class="space-y-4">
+        {
+          [
+            {
+              q: "What are the requirements to become a partner?",
+              a: "Requirements vary by partnership type, but generally include a registered business, relevant experience, and alignment with Sibera's values.",
+            },
+            {
+              q: "How much can I earn as a partner?",
+              a: "Earnings depend on your partnership type and performance. Resellers can earn up to 30% commission, while referral partners earn 20% on successful conversions.",
+            },
+            {
+              q: "Is there a cost to join the partner program?",
+              a: "No, joining the Sibera Partner Program is completely free.",
+            },
+            {
+              q: "How long does the application process take?",
+              a: "We typically review applications within 48 hours and complete onboarding within 1-2 weeks.",
+            },
+          ].map((faq) => (
+            <details class="group bg-white rounded-xl p-6 hover:shadow-md transition-all border border-gray-100">
+              <summary class="flex items-center justify-between cursor-pointer list-none">
+                <span class="font-bold text-lg text-gray-900 pr-4">
+                  {faq.q}
+                </span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform" />
+              </summary>
+              <p class="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Page>

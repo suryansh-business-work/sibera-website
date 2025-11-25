@@ -1,0 +1,99 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const tools = [
+  {
+    name: "Invoice Generator",
+    description: "Create professional invoices instantly without signing up",
+    icon: "file-invoice",
+    link: "#invoice-generator",
+  },
+  {
+    name: "Time Zone Converter",
+    description: "Convert time across different time zones easily",
+    icon: "clock",
+    link: "#timezone",
+  },
+  {
+    name: "ROI Calculator",
+    description: "Calculate your return on investment with Sibera",
+    icon: "calculator",
+    link: "#roi",
+  },
+  {
+    name: "Password Generator",
+    description: "Generate secure passwords for your accounts",
+    icon: "key",
+    link: "#password",
+  },
+  {
+    name: "Task Estimator",
+    description: "Estimate project timelines and resource needs",
+    icon: "chart-line",
+    link: "#estimator",
+  },
+  {
+    name: "Team Size Calculator",
+    description: "Calculate optimal team size for your projects",
+    icon: "users",
+    link: "#team-calc",
+  },
+];
+---
+
+<Page
+  title="Free Tools | Sibera"
+  description="Access our collection of free business tools to help you work smarter."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Free Business Tools
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Powerful tools to help you work smarter. No signup required.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          tools.map((tool) => (
+            <a
+              href={tool.link}
+              class="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-500 hover:shadow-lg transition-all group"
+            >
+              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                <i
+                  class={`fa-solid fa-${tool.icon} text-blue-600 text-2xl group-hover:text-white transition-colors`}
+                />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tool.name}</h3>
+              <p class="text-gray-600 mb-4">{tool.description}</p>
+              <div class="flex items-center text-blue-600 font-semibold">
+                Try it now
+                <i class="fa-solid fa-arrow-right ml-2" />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Featured Tool Section -->
+      <div class="mt-20 bg-blue-600 rounded-2xl p-12 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4">Need Custom Tools?</h2>
+        <p class="text-xl text-blue-100 mb-8">
+          We can build custom tools tailored to your business needs
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all"
+        >
+          Contact Us
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>

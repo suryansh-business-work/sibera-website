@@ -1,230 +1,217 @@
-import { c as createComponent, b as createAstro, f as renderComponent, r as renderTemplate, a as addAttribute, m as maybeRenderHead } from '../chunks/astro/server_BH2_nrap.mjs';
+import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_Db4HblM3.mjs';
 import 'kleur/colors';
-import { $ as $$Page } from '../chunks/Page_C6cacKl3.mjs';
+import { $ as $$Page } from '../chunks/Page_CwCVTAVJ.mjs';
+import { s as styleConfig } from '../chunks/style-config_DFpW0pmm.mjs';
 export { renderers } from '../renderers.mjs';
 
-var __freeze = Object.freeze;
-var __defProp = Object.defineProperty;
-var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
-var _a;
-const $$Astro = createAstro();
 const $$Pricing = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
-  Astro2.self = $$Pricing;
-  const {
-    title = "Pricing | Sibera",
-    description = "Flexible pricing plans for every stage. Choose the plan that fits your business needs and start streamlining your operations with Sibera.",
-    image = "/favicon.svg"
-  } = Astro2.props;
-  function getYearly(monthly, yearly, discount) {
-    if (typeof monthly === "number" && discount) {
-      return Math.round(monthly * 12 * (1 - discount));
-    }
-    return yearly;
-  }
-  const YEARLY_DISCOUNT = 0.2;
-  const plans = [
+  const pricingPlans = [
     {
-      name: "Free",
-      monthly: 0,
-      yearly: 0,
+      name: "Free Forever",
+      price: "$0",
+      period: "forever",
+      description: "Perfect for getting started and exploring Sibera",
       features: [
-        "Access to all modules",
-        "5 Support Tickets/mo",
-        "1GB File Storage",
-        "Basic Task Management",
-        "Community Support"
+        { name: "Up to 3 users", included: true },
+        { name: "1 GB storage", included: true },
+        { name: "Basic support tickets", included: true },
+        { name: "Email support", included: true },
+        { name: "Core modules access", included: true },
+        { name: "100 tasks/month", included: true },
+        { name: "Basic integrations", included: true },
+        { name: "Community forum", included: true },
+        { name: "Priority support", included: false },
+        { name: "Advanced analytics", included: false }
       ],
-      cta: "Start Free",
-      highlight: false,
-      discount: 0
+      cta: "Get Started Free",
+      ctaLink: "/trial",
+      popular: false
     },
     {
-      name: "Basic",
-      monthly: 15,
-      yearly: getYearly(15, 150, YEARLY_DISCOUNT),
+      name: "Small Business",
+      price: "$29",
+      period: "per month",
+      description: "Ideal for startups and small teams",
       features: [
-        "Unlimited Support Tickets",
-        "10GB File Storage",
-        "Advanced Task Management",
-        "5 Team Members",
-        "Email Support"
+        { name: "Up to 10 users", included: true },
+        { name: "50 GB storage", included: true },
+        { name: "Unlimited support tickets", included: true },
+        { name: "Priority email support", included: true },
+        { name: "All modules access", included: true },
+        { name: "Unlimited tasks", included: true },
+        { name: "Advanced integrations", included: true },
+        { name: "Basic analytics", included: true },
+        { name: "API access", included: true },
+        { name: "Custom workflows", included: false }
       ],
-      cta: "Choose Basic",
-      discount: YEARLY_DISCOUNT
+      cta: "Start Free Trial",
+      ctaLink: "/trial",
+      popular: true
     },
     {
-      name: "Pro",
-      monthly: 35,
-      yearly: getYearly(35, 350, YEARLY_DISCOUNT),
+      name: "Big Business",
+      price: "$99",
+      period: "per month",
+      description: "For growing businesses and larger teams",
       features: [
-        "Unlimited Support Tickets",
-        "100GB File Storage",
-        "Advanced Task & Project Management",
-        "20 Team Members",
-        "Priority Email Support"
+        { name: "Up to 50 users", included: true },
+        { name: "500 GB storage", included: true },
+        { name: "Unlimited everything", included: true },
+        { name: "24/7 priority support", included: true },
+        { name: "All modules + premium features", included: true },
+        { name: "Unlimited tasks & projects", included: true },
+        { name: "All integrations", included: true },
+        { name: "Advanced analytics & reporting", included: true },
+        { name: "Full API access", included: true },
+        { name: "Custom workflows & automation", included: true }
       ],
-      cta: "Choose Pro",
-      highlight: true,
-      discount: YEARLY_DISCOUNT
-    },
-    {
-      name: "Enterprise",
-      monthly: "Custom",
-      yearly: "Custom",
-      features: [
-        "Unlimited Everything",
-        "1TB+ File Storage",
-        "Dedicated Account Manager",
-        "24/7 Phone Support",
-        "Custom Integrations"
-      ],
-      cta: "Contact Sales"
+      cta: "Start Free Trial",
+      ctaLink: "/trial",
+      popular: false
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": title, "description": description, "image": image, "pageUrl": "/pricing" }, { "default": ($$result2) => renderTemplate(_a || (_a = __template([" ", '<main class="bg-gradient-to-b from-indigo-50 to-white min-h-screen py-16 px-4 pt-24"> <section class="max-w-7xl mx-auto"> <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-3 tracking-tight">\nPricing Plans\n</h1> <p class="text-center text-gray-600 mb-12 text-lg">', '</p> <div class="flex justify-center mb-10" role="tablist" aria-label="Pricing toggle"> <button id="monthly-btn" type="button" role="tab" aria-selected="true" aria-controls="pricing-table" tabindex="0" class="cursor-pointer px-6 py-2 rounded-l-lg border border-indigo-600 font-semibold bg-indigo-600 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 text-base shadow-sm">\nMonthly\n</button> <button id="yearly-btn" type="button" role="tab" aria-selected="false" aria-controls="pricing-table" tabindex="-1" class="cursor-pointer px-6 py-2 rounded-r-lg border border-indigo-600 font-semibold bg-white text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 text-base shadow-sm">\nYearly\n</button> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" id="pricing-table"> ', ` </div> </section> </main> <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const monthlyBtn = document.getElementById("monthly-btn");
-      const yearlyBtn = document.getElementById("yearly-btn");
-      const prices = document.querySelectorAll(".price");
-      const discounts = document.querySelectorAll(".yearly-discount");
-
-      function setActive(isMonthly) {
-        if (isMonthly) {
-          monthlyBtn.setAttribute("aria-selected", "true");
-          monthlyBtn.setAttribute("tabindex", "0");
-          monthlyBtn.classList.add("bg-indigo-600", "text-white");
-          monthlyBtn.classList.remove("bg-white", "text-indigo-600");
-          yearlyBtn.setAttribute("aria-selected", "false");
-          yearlyBtn.setAttribute("tabindex", "-1");
-          yearlyBtn.classList.remove("bg-indigo-600", "text-white");
-          yearlyBtn.classList.add("bg-white", "text-indigo-600");
-          discounts.forEach((el) => el.classList.add("hidden"));
-        } else {
-          yearlyBtn.setAttribute("aria-selected", "true");
-          yearlyBtn.setAttribute("tabindex", "0");
-          yearlyBtn.classList.add("bg-indigo-600", "text-white");
-          yearlyBtn.classList.remove("bg-white", "text-indigo-600");
-          monthlyBtn.setAttribute("aria-selected", "false");
-          monthlyBtn.setAttribute("tabindex", "-1");
-          monthlyBtn.classList.remove("bg-indigo-600", "text-white");
-          monthlyBtn.classList.add("bg-white", "text-indigo-600");
-          discounts.forEach((el) => el.classList.remove("hidden"));
-        }
-      }
-
-      monthlyBtn.addEventListener("click", () => {
-        setActive(true);
-        prices.forEach((el) => {
-          const val = el.getAttribute("data-monthly");
-          el.innerHTML =
-            val === "Custom"
-              ? "Custom<span class='text-base font-normal duration'>/mo</span>"
-              : val === "0"
-              ? "Free"
-              : \`$\${val}<span class='text-base font-normal duration'>/mo</span>\`;
-        });
-      });
-
-      yearlyBtn.addEventListener("click", () => {
-        setActive(false);
-        prices.forEach((el) => {
-          const val = el.getAttribute("data-yearly");
-          el.innerHTML =
-            val === "Custom"
-              ? "Custom<span class='text-base font-normal duration'>/yr</span>"
-              : val === "0"
-              ? "Free"
-              : \`$\${val}<span class='text-base font-normal duration'>/yr</span>\`;
-        });
-      });
-
-      // Keyboard accessibility for toggle
-      [monthlyBtn, yearlyBtn].forEach((btn, idx, arr) => {
-        btn.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-            e.preventDefault();
-            const next = arr[(idx + 1) % arr.length];
-            next.focus();
-            next.click();
-          }
-        });
-      });
-    });
-  <\/script> `], [" ", '<main class="bg-gradient-to-b from-indigo-50 to-white min-h-screen py-16 px-4 pt-24"> <section class="max-w-7xl mx-auto"> <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-3 tracking-tight">\nPricing Plans\n</h1> <p class="text-center text-gray-600 mb-12 text-lg">', '</p> <div class="flex justify-center mb-10" role="tablist" aria-label="Pricing toggle"> <button id="monthly-btn" type="button" role="tab" aria-selected="true" aria-controls="pricing-table" tabindex="0" class="cursor-pointer px-6 py-2 rounded-l-lg border border-indigo-600 font-semibold bg-indigo-600 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 text-base shadow-sm">\nMonthly\n</button> <button id="yearly-btn" type="button" role="tab" aria-selected="false" aria-controls="pricing-table" tabindex="-1" class="cursor-pointer px-6 py-2 rounded-r-lg border border-indigo-600 font-semibold bg-white text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 text-base shadow-sm">\nYearly\n</button> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" id="pricing-table"> ', ` </div> </section> </main> <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const monthlyBtn = document.getElementById("monthly-btn");
-      const yearlyBtn = document.getElementById("yearly-btn");
-      const prices = document.querySelectorAll(".price");
-      const discounts = document.querySelectorAll(".yearly-discount");
-
-      function setActive(isMonthly) {
-        if (isMonthly) {
-          monthlyBtn.setAttribute("aria-selected", "true");
-          monthlyBtn.setAttribute("tabindex", "0");
-          monthlyBtn.classList.add("bg-indigo-600", "text-white");
-          monthlyBtn.classList.remove("bg-white", "text-indigo-600");
-          yearlyBtn.setAttribute("aria-selected", "false");
-          yearlyBtn.setAttribute("tabindex", "-1");
-          yearlyBtn.classList.remove("bg-indigo-600", "text-white");
-          yearlyBtn.classList.add("bg-white", "text-indigo-600");
-          discounts.forEach((el) => el.classList.add("hidden"));
-        } else {
-          yearlyBtn.setAttribute("aria-selected", "true");
-          yearlyBtn.setAttribute("tabindex", "0");
-          yearlyBtn.classList.add("bg-indigo-600", "text-white");
-          yearlyBtn.classList.remove("bg-white", "text-indigo-600");
-          monthlyBtn.setAttribute("aria-selected", "false");
-          monthlyBtn.setAttribute("tabindex", "-1");
-          monthlyBtn.classList.remove("bg-indigo-600", "text-white");
-          monthlyBtn.classList.add("bg-white", "text-indigo-600");
-          discounts.forEach((el) => el.classList.remove("hidden"));
-        }
-      }
-
-      monthlyBtn.addEventListener("click", () => {
-        setActive(true);
-        prices.forEach((el) => {
-          const val = el.getAttribute("data-monthly");
-          el.innerHTML =
-            val === "Custom"
-              ? "Custom<span class='text-base font-normal duration'>/mo</span>"
-              : val === "0"
-              ? "Free"
-              : \\\`$\\\${val}<span class='text-base font-normal duration'>/mo</span>\\\`;
-        });
-      });
-
-      yearlyBtn.addEventListener("click", () => {
-        setActive(false);
-        prices.forEach((el) => {
-          const val = el.getAttribute("data-yearly");
-          el.innerHTML =
-            val === "Custom"
-              ? "Custom<span class='text-base font-normal duration'>/yr</span>"
-              : val === "0"
-              ? "Free"
-              : \\\`$\\\${val}<span class='text-base font-normal duration'>/yr</span>\\\`;
-        });
-      });
-
-      // Keyboard accessibility for toggle
-      [monthlyBtn, yearlyBtn].forEach((btn, idx, arr) => {
-        btn.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-            e.preventDefault();
-            const next = arr[(idx + 1) % arr.length];
-            next.focus();
-            next.click();
-          }
-        });
-      });
-    });
-  <\/script> `])), maybeRenderHead(), description, plans.map((plan, idx) => renderTemplate`<div${addAttribute(`w-full max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center border transition-transform duration-200 hover:scale-[1.03] ${plan.highlight ? "border-2 border-indigo-600 scale-105 shadow-2xl" : "border-gray-100"}`, "class")}> <h2 class="text-2xl font-bold mb-2 text-gray-900 tracking-tight">${plan.name}</h2> <p class="text-5xl font-extrabold text-indigo-600 mb-2 price"${addAttribute(plan.monthly, "data-monthly")}${addAttribute(plan.yearly, "data-yearly")}> ${plan.monthly === "Custom" ? "Custom" : plan.monthly === 0 ? "Free" : `$${plan.monthly}`} <span class="text-base font-normal duration">${plan.monthly === 0 ? "" : "/mo"}</span> </p> ${plan.discount && plan.discount > 0 && renderTemplate`<div class="hidden yearly-discount text-xs text-green-600 font-semibold mb-2">
-Save ${Math.round(plan.discount * 100)}% with yearly billing!
-</div>`} <ul class="text-gray-700 mb-8 space-y-3 text-center w-full"> ${plan.features.map((feature) => renderTemplate`<li class="flex items-center gap-2 justify-center"> <span class="text-green-500 text-lg">✔️</span> <span>${feature}</span> </li>`)} </ul> <a href="#"${addAttribute(`mt-auto w-full text-center px-6 py-3 rounded-lg font-semibold border shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 transition
-                  ${plan.name === "Free" ? "bg-gray-100 text-indigo-700 border-gray-200 hover:bg-indigo-50" : "bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-50 hover:text-indigo-700"}
-                `, "class")}${addAttribute(plan.cta + " Plan", "aria-label")}> ${plan.cta} </a> </div>`)) })}`;
+  const enterpriseFeatures = [
+    "Unlimited users",
+    "Unlimited storage",
+    "Dedicated account manager",
+    "Custom SLAs",
+    "Advanced security & compliance",
+    "Custom integrations & development",
+    "Onboarding & training",
+    "White-label options",
+    "Multi-region deployment",
+    "Premium support 24/7/365"
+  ];
+  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": "Pricing Plans | Sibera", "description": "Choose the perfect plan for your business. From free to enterprise, we have a plan that fits your needs." }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="bg-white py-20 px-4"> <div class="max-w-7xl mx-auto text-center"> <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+Simple, Transparent Pricing
+</h1> <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+Choose the plan that's right for your business. All plans include access
+        to core features.
+</p> </div> </section>  <section class="py-16 px-4 bg-gray-50"> <div class="max-w-7xl mx-auto"> <!-- Standard Plans Grid --> <div class="grid md:grid-cols-3 gap-8 mb-12"> ${pricingPlans.map((plan) => renderTemplate`<div${addAttribute(`bg-white rounded-2xl shadow-lg overflow-hidden relative ${plan.popular ? "border-4 border-blue-600" : "border border-gray-200"}`, "class")}> ${plan.popular && renderTemplate`<div class="bg-blue-600 text-white text-center py-2 px-4 text-sm font-bold">
+MOST POPULAR
+</div>`} <div class="p-8"> <h3 class="text-2xl font-bold text-gray-900 mb-2"> ${plan.name} </h3> <p class="text-gray-600 mb-6">${plan.description}</p> <div class="mb-6"> <div class="flex items-baseline gap-2"> <span class="text-5xl font-bold text-gray-900"> ${plan.price} </span> <span class="text-gray-600">/ ${plan.period}</span> </div> </div> <a${addAttribute(plan.ctaLink, "href")}${addAttribute(
+    plan.popular ? styleConfig.buttons.primary + " w-full justify-center" : "inline-flex items-center justify-center w-full px-6 py-3 text-base font-semibold text-blue-600 bg-blue-50 border-2 border-blue-600 rounded-xl hover:bg-blue-100 transition-all",
+    "class"
+  )}> ${plan.cta} </a> <div class="mt-8 pt-8 border-t border-gray-200"> <ul class="space-y-4"> ${plan.features.map((feature) => renderTemplate`<li class="flex items-start gap-3"> ${feature.included ? renderTemplate`<i class="fa-solid fa-check text-green-500 mt-1 flex-shrink-0"></i>` : renderTemplate`<i class="fa-solid fa-xmark text-gray-300 mt-1 flex-shrink-0"></i>`} <span${addAttribute(
+    feature.included ? "text-gray-700" : "text-gray-400",
+    "class"
+  )}> ${feature.name} </span> </li>`)} </ul> </div> </div> </div>`)} </div> <!-- Enterprise Plan - Full Width --> <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl shadow-2xl overflow-hidden"> <div class="p-8 md:p-12"> <div class="grid md:grid-cols-2 gap-8 items-center"> <!-- Left Side --> <div class="text-white"> <h3 class="text-4xl font-bold mb-4">Enterprise</h3> <p class="text-xl text-blue-100 mb-6">
+Custom solutions for large organizations with advanced needs
+</p> <div class="mb-8"> <div class="text-5xl font-bold mb-2">Custom Pricing</div> <p class="text-blue-100">Tailored to your requirements</p> </div> <div class="flex flex-wrap gap-4"> <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg">
+Contact Sales
+<i class="fa-solid fa-arrow-right"></i> </a> <a href="/demo" class="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border border-white/30">
+Schedule Demo
+<i class="fa-solid fa-calendar"></i> </a> </div> </div> <!-- Right Side - Features --> <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"> <h4 class="text-white font-bold text-lg mb-4">
+Everything in Big Business, plus:
+</h4> <ul class="grid grid-cols-1 md:grid-cols-2 gap-3"> ${enterpriseFeatures.map((feature) => renderTemplate`<li class="flex items-start gap-2 text-white"> <i class="fa-solid fa-check text-green-400 mt-1 flex-shrink-0"></i> <span class="text-sm">${feature}</span> </li>`)} </ul> </div> </div> </div> </div> </div> </section>  <section class="py-20 px-4 bg-white"> <div class="max-w-7xl mx-auto"> <div class="text-center mb-12"> <h2 class="text-4xl font-bold text-gray-900 mb-4">Compare Plans</h2> <p class="text-xl text-gray-600">See what's included in each plan</p> </div> <div class="overflow-x-auto"> <table class="w-full border-collapse"> <thead> <tr class="border-b-2 border-gray-200"> <th class="text-left py-4 px-6 font-bold text-gray-900">Features</th> <th class="text-center py-4 px-6 font-bold text-gray-900">Free</th> <th class="text-center py-4 px-6 font-bold text-gray-900">Small Business</th> <th class="text-center py-4 px-6 font-bold text-gray-900">Big Business</th> <th class="text-center py-4 px-6 font-bold text-gray-900">Enterprise</th> </tr> </thead> <tbody> ${[
+    {
+      feature: "Users",
+      free: "3",
+      small: "10",
+      big: "50",
+      enterprise: "Unlimited"
+    },
+    {
+      feature: "Storage",
+      free: "1 GB",
+      small: "50 GB",
+      big: "500 GB",
+      enterprise: "Unlimited"
+    },
+    {
+      feature: "Support Tickets",
+      free: "Basic",
+      small: "Unlimited",
+      big: "Unlimited",
+      enterprise: "Unlimited"
+    },
+    {
+      feature: "Email Support",
+      free: "\u2713",
+      small: "Priority",
+      big: "24/7",
+      enterprise: "24/7/365"
+    },
+    {
+      feature: "All Modules",
+      free: "\u2713",
+      small: "\u2713",
+      big: "\u2713",
+      enterprise: "\u2713"
+    },
+    {
+      feature: "Tasks",
+      free: "100/mo",
+      small: "Unlimited",
+      big: "Unlimited",
+      enterprise: "Unlimited"
+    },
+    {
+      feature: "Integrations",
+      free: "Basic",
+      small: "Advanced",
+      big: "All",
+      enterprise: "Custom"
+    },
+    {
+      feature: "Analytics",
+      free: "\u2014",
+      small: "Basic",
+      big: "Advanced",
+      enterprise: "Custom"
+    },
+    {
+      feature: "API Access",
+      free: "\u2014",
+      small: "\u2713",
+      big: "Full",
+      enterprise: "Full"
+    },
+    {
+      feature: "Custom Workflows",
+      free: "\u2014",
+      small: "\u2014",
+      big: "\u2713",
+      enterprise: "\u2713"
+    },
+    {
+      feature: "Dedicated Manager",
+      free: "\u2014",
+      small: "\u2014",
+      big: "\u2014",
+      enterprise: "\u2713"
+    },
+    {
+      feature: "SLA Guarantee",
+      free: "\u2014",
+      small: "\u2014",
+      big: "\u2014",
+      enterprise: "Custom"
+    }
+  ].map((row) => renderTemplate`<tr class="border-b border-gray-100 hover:bg-gray-50"> <td class="py-4 px-6 font-medium text-gray-900"> ${row.feature} </td> <td class="py-4 px-6 text-center text-gray-600"> ${row.free} </td> <td class="py-4 px-6 text-center text-gray-600"> ${row.small} </td> <td class="py-4 px-6 text-center text-gray-600">${row.big}</td> <td class="py-4 px-6 text-center text-gray-600"> ${row.enterprise} </td> </tr>`)} </tbody> </table> </div> </div> </section>  <section class="py-20 px-4 bg-gray-50"> <div class="max-w-4xl mx-auto"> <div class="text-center mb-12"> <h2 class="text-4xl font-bold text-gray-900 mb-4">
+Frequently Asked Questions
+</h2> </div> <div class="space-y-4"> ${[
+    {
+      q: "Can I switch plans later?",
+      a: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately and we'll prorate the charges."
+    },
+    {
+      q: "Is there a free trial?",
+      a: "Yes, we offer a 14-day free trial for all paid plans. No credit card required to start."
+    },
+    {
+      q: "What happens when I exceed my plan limits?",
+      a: "We'll notify you when you're approaching your limits. You can upgrade at any time or purchase additional resources."
+    },
+    {
+      q: "Do you offer discounts for annual billing?",
+      a: "Yes! Save 20% when you pay annually instead of monthly."
+    }
+  ].map((faq) => renderTemplate`<details class="group bg-white rounded-xl p-6 hover:shadow-md transition-all border border-gray-100"> <summary class="flex items-center justify-between cursor-pointer list-none"> <span class="font-bold text-lg text-gray-900 pr-4"> ${faq.q} </span> <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i> </summary> <p class="mt-4 text-gray-600 leading-relaxed">${faq.a}</p> </details>`)} </div> </div> </section>  <section class="py-20 px-4 bg-blue-600 text-white"> <div class="max-w-4xl mx-auto text-center"> <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2> <p class="text-xl mb-8 text-blue-100">
+Start your free trial today. No credit card required.
+</p> <a href="/trial" class="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-2xl text-lg">
+Start Free Trial
+<i class="fa-solid fa-arrow-right"></i> </a> </div> </section> ` })}`;
 }, "C:/Users/Suryansh/Desktop/Projects/Sibera/sibera-astro-js-website/src/pages/pricing.astro", void 0);
 
 const $$file = "C:/Users/Suryansh/Desktop/Projects/Sibera/sibera-astro-js-website/src/pages/pricing.astro";
