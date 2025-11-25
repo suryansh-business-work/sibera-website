@@ -13,30 +13,125 @@ const { faqs } = Astro.props;
 
 <section id="faq" class="py-16 md:py-24 bg-white">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">Frequently Asked Questions</h2>
-      <p class="text-lg text-gray-600">Everything you need to know about our product.</p>
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Everything you need to know about our product and services.
+      </p>
     </div>
 
-    <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <div class="border-2 border-gray-200 rounded-xl overflow-hidden hover:border-blue-300 transition-colors duration-200">
-          <button
-            class="w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex justify-between items-center transition-all duration-200 group"
-            onclick={`document.getElementById('faq-answer-${index}').classList.toggle('hidden'); document.getElementById('faq-icon-${index}').classList.toggle('rotate-180')`}
-          >
-            <span class="font-semibold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">{faq.question}</span>
-            <div class="flex-shrink-0 ml-4">
-              <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                <i id={`faq-icon-${index}`} class="fa-solid fa-chevron-down text-blue-600 transition-transform duration-200 text-sm"></i>
+    <div class="space-y-4" id="faq-container">
+      {
+        faqs.map((faq, index) => (
+          <div class="faq-item group rounded-2xl bg-gray-50 transition-all duration-300 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-100">
+            <h3>
+              <a
+                type="button"
+                class="faq-button w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center gap-4"
+                aria-expanded="false"
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
+              >
+                <span class="font-semibold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">
+                  {faq.question}
+                </span>
+                <span class="flex-shrink-0">
+                  <span class="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:border-blue-100 group-hover:text-blue-600 transition-all duration-300">
+                    <i class="faq-icon fa-solid fa-plus text-gray-400 text-sm transition-transform duration-300" />
+                  </span>
+                </span>
+              </a>
+            </h3>
+            <div
+              id={`faq-answer-${index}`}
+              class="faq-answer grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+              role="region"
+              aria-labelledby={`faq-question-${index}`}
+            >
+              <div class="overflow-hidden">
+                <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </div>
               </div>
             </div>
-          </button>
-          <div id={`faq-answer-${index}`} class="hidden px-6 py-5 bg-white text-gray-600 border-t-2 border-gray-100 leading-relaxed">
-            {faq.answer}
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqContainer = document.getElementById("faq-container");
+
+    if (faqContainer) {
+      const buttons = faqContainer.querySelectorAll(".faq-button");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const isExpanded = button.getAttribute("aria-expanded") === "true";
+          const answerId = button.getAttribute("aria-controls");
+          const answer = document.getElementById(answerId!);
+          const icon = button.querySelector(".faq-icon");
+          const item = button.closest(".faq-item");
+
+          // Toggle current item
+          button.setAttribute("aria-expanded", (!isExpanded).toString());
+
+          if (item) {
+            if (!isExpanded) {
+              item.classList.add(
+                "bg-white",
+                "shadow-lg",
+                "ring-1",
+                "ring-black/5",
+              );
+              item.classList.remove(
+                "bg-gray-50",
+                "hover:bg-white",
+                "hover:shadow-md",
+              );
+            } else {
+              item.classList.remove(
+                "bg-white",
+                "shadow-lg",
+                "ring-1",
+                "ring-black/5",
+              );
+              item.classList.add(
+                "bg-gray-50",
+                "hover:bg-white",
+                "hover:shadow-md",
+              );
+            }
+          }
+
+          if (answer) {
+            if (!isExpanded) {
+              answer.classList.remove("grid-rows-[0fr]");
+              answer.classList.add("grid-rows-[1fr]");
+            } else {
+              answer.classList.remove("grid-rows-[1fr]");
+              answer.classList.add("grid-rows-[0fr]");
+            }
+          }
+
+          if (icon) {
+            if (!isExpanded) {
+              icon.classList.remove("fa-plus");
+              icon.classList.add("fa-minus");
+              icon.classList.add("rotate-180"); // Optional rotation if using chevron
+            } else {
+              icon.classList.remove("fa-minus");
+              icon.classList.add("fa-plus");
+              icon.classList.remove("rotate-180");
+            }
+          }
+        });
+      });
+    }
+  });
+</script>

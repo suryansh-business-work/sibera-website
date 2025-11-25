@@ -71,34 +71,58 @@ const values = [
   description="Join Sibera and help build the future of business automation. Explore remote career opportunities in engineering, product, design, and more."
 >
   <!-- Hero Section -->
-  <section class="careers-hero" aria-labelledby="hero-heading">
-    <div class="hero-container">
-      <h1 id="hero-heading" class="hero-title">
-        Build the Future with <span class="highlight">Sibera</span>
+  <section
+    class="relative h-[600px] flex items-center justify-center overflow-hidden"
+  >
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.pexels.com/photos/4065133/pexels-photo-4065133.jpeg"
+        alt="Team working together"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gray-900/70"></div>
+    </div>
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    >
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        Build the Future with <span class="text-blue-400">Sibera</span>
       </h1>
-      <p class="hero-description">
+      <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
         Join our mission to empower businesses worldwide with innovative
         automation solutions. We're looking for passionate, talented individuals
         to help shape the future of work.
       </p>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <i class="fa-solid fa-users stat-icon"></i>
-          <div class="stat-number">50+</div>
-          <div class="stat-label">Team Members</div>
+
+      <div class="flex flex-wrap justify-center gap-8 mb-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">50+</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            Team Members
+          </div>
         </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-globe stat-icon"></i>
-          <div class="stat-number">Remote</div>
-          <div class="stat-label">First Culture</div>
+        <div class="w-px h-12 bg-gray-700 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">Remote</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            First Culture
+          </div>
         </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-briefcase stat-icon"></i>
-          <div class="stat-number">6</div>
-          <div class="stat-label">Open Positions</div>
+        <div class="w-px h-12 bg-gray-700 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">6</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            Open Positions
+          </div>
         </div>
       </div>
-      <a href="#open-positions" class="hero-cta">
+
+      <a
+        href="#open-positions"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1"
+      >
         <span>View Open Positions</span>
         <i class="fa-solid fa-arrow-down"></i>
       </a>
@@ -106,26 +130,31 @@ const values = [
   </section>
 
   <!-- Our Values Section -->
-  <section class="values-section" aria-labelledby="values-heading">
-    <div class="section-container">
-      <h2 id="values-heading" class="section-title">Our Core Values</h2>
-      <p class="section-subtitle">The principles that guide everything we do</p>
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          Our Core Values
+        </h2>
+        <p class="text-lg text-gray-600">
+          The principles that guide everything we do
+        </p>
+      </div>
 
-      <div class="values-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {
           values.map((value) => (
-            <div class="value-card">
-              <div
-                class="value-icon"
-                style={`background-color: ${value.color}20;`}
-              >
+            <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-all duration-300 group">
+              <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <div
-                  class="value-dot"
-                  style={`background-color: ${value.color};`}
+                  class="w-3 h-3 rounded-full"
+                  style={`background-color: ${value.color}`}
                 />
               </div>
-              <h3 class="value-title">{value.title}</h3>
-              <p class="value-description">{value.description}</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {value.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{value.description}</p>
             </div>
           ))
         }
@@ -134,22 +163,28 @@ const values = [
   </section>
 
   <!-- Benefits Section -->
-  <section class="benefits-section" aria-labelledby="benefits-heading">
-    <div class="section-container">
-      <h2 id="benefits-heading" class="section-title">Why Work at Sibera</h2>
-      <p class="section-subtitle">
-        We invest in our team's success and well-being
-      </p>
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          Why Work at Sibera
+        </h2>
+        <p class="text-lg text-gray-600">
+          We invest in our team's success and well-being
+        </p>
+      </div>
 
-      <div class="benefits-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           benefits.map((benefit) => (
-            <div class="benefit-card">
-              <div class="benefit-icon">
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+              <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6">
                 <i class={benefit.icon} />
               </div>
-              <h3 class="benefit-title">{benefit.title}</h3>
-              <p class="benefit-description">{benefit.description}</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {benefit.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{benefit.description}</p>
             </div>
           ))
         }
@@ -163,328 +198,20 @@ const values = [
   </div>
 
   <!-- CTA Section -->
-  <section class="cta-section" aria-labelledby="cta-heading">
-    <div class="cta-container">
-      <h2 id="cta-heading" class="cta-title">Don't See the Right Role?</h2>
-      <p class="cta-description">
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Don't See the Right Role?</h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
         We're always looking for talented individuals. Send us your resume and
         let us know how you'd like to contribute to Sibera.
       </p>
-      <a href="mailto:careers@sibera.work" class="cta-button">
-        <i class="fa-solid fa-envelope"></i>
-        <span>Email Your Resume</span>
+      <a
+        href="mailto:careers@sibera.work"
+        class="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#333] font-bold rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        <i class="fa-solid fa-envelope text-[#333]"></i>
+        <span class="text-[#333]">Email Your Resume</span>
       </a>
     </div>
   </section>
 </Page>
-
-<style>
-  /* Hero Section */
-  .careers-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .careers-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
-    opacity: 0.3;
-  }
-
-  .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .highlight {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .stat-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem 2rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    min-width: 150px;
-    transition: transform 0.3s ease;
-  }
-
-  .stat-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .stat-icon {
-    font-size: 2rem;
-    color: #ffd700;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.25rem;
-  }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    background: white;
-    color: #667eea;
-    font-size: 1.125rem;
-    font-weight: 600;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .hero-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .hero-cta i {
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(4px);
-    }
-  }
-
-  /* Values Section */
-  .values-section {
-    padding: 5rem 1.5rem;
-    background: white;
-  }
-
-  .section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #1a202c;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: #64748b;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .value-card {
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .value-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .value-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .value-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 0.75rem;
-  }
-
-  .value-description {
-    color: #64748b;
-    line-height: 1.6;
-  }
-
-  /* Benefits Section */
-  .benefits-section {
-    padding: 5rem 1.5rem;
-    background: #f8f9fa;
-  }
-
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .benefit-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-  }
-
-  .benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
-    border-color: #667eea;
-  }
-
-  .benefit-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .benefit-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 0.75rem;
-  }
-
-  .benefit-description {
-    color: #64748b;
-    line-height: 1.6;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: 5rem 1.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    text-align: center;
-  }
-
-  .cta-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .cta-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1rem;
-  }
-
-  .cta-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    background: white;
-    color: #667eea;
-    font-size: 1.125rem;
-    font-weight: 600;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero-stats {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .stat-card {
-      width: 100%;
-      max-width: 280px;
-    }
-
-    .values-grid,
-    .benefits-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

@@ -10,6 +10,7 @@ export interface AppData {
   appInternalPageLink?: string;
   launchState: string;
   appLogo: string;
+  bannerImage?: string;
 }
 
 export const allApps: AppData[] = [
@@ -24,7 +25,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:24:14.124Z',
     appInternalPageLink: '/app/si-ads',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-ads.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-ads.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Chatbot.svg?updatedAt=1713627765282'
   },
   {
     appId: '647b9860e472d3d07ece6a35',
@@ -77,7 +79,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:21:22.935Z',
     appInternalPageLink: '/app/si-campaign',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-campaign.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-campaign.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Campaign.svg?updatedAt=1713627763276'
   },
   {
     appId: '64763bd31213208699bcaf40',
@@ -90,7 +93,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:09:23.709Z',
     appInternalPageLink: '/app/si-chatbot',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-chatbot.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-chatbot.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Chatbot.svg?updatedAt=1713627765282'
   },
   {
     appId: '64763ece1213208699bcaf94',
@@ -116,7 +120,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:01:36.609Z',
     appInternalPageLink: '/app/si-communication',
     launchState: 'mvp',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-communication.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-communication.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Contact%20Manager.svg?updatedAt=1713627756893'
   },
   {
     appId: '64783b72eb7a3c01e57b7cb4',
@@ -142,7 +147,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:24:50.348Z',
     appInternalPageLink: '/app/si-deals',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-deals.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-deals.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Deals.svg?updatedAt=1713627757483'
   },
   {
     appId: '64763e851213208699bcaf8c',
@@ -234,7 +240,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:02:05.423Z',
     appInternalPageLink: '/app/si-form',
     launchState: 'mvp',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Forms.svg?updatedAt=1713627757509'
   },
   {
     appId: '64763dcf1213208699bcaf72',
@@ -431,7 +438,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:25:29.089Z',
     appInternalPageLink: '/app/si-sales-automate',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-sales-automate.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-sales-automate.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Sales%20Sequence.svg?updatedAt=1713627761115'
   },
   {
     appId: '64763f0f1213208699bcaf9c',
@@ -445,7 +453,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:23:11.923Z',
     appInternalPageLink: '/app/si-social',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-social.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-social.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Social.svg?updatedAt=1713627762230'
   },
   {
     appId: '64763e4e1213208699bcaf84',
@@ -471,7 +480,8 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:02:38.668Z',
     appInternalPageLink: '/app/si-survey',
     launchState: 'coming-soon',
-    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-survey.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-survey.svg',
+    bannerImage: 'https://ik.imagekit.io/esdata1/sibera/website/Surveys.svg?updatedAt=1713627762787'
   },
   {
     appId: '64763cae1213208699bcaf56',

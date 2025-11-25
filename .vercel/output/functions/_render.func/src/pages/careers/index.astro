@@ -1,143 +1,217 @@
 ---
-import DynamicHorizontalTab from "../../components/dynamic-components/DynamicHorizontalTab.astro";
 import Page from "../../layouts/Page.astro";
-import CareerForm from "../../components/forms/ContactForm.astro";
-import DynamicSliderImageStack from "../../components/dynamic-components/DynamicSliderImageStack.astro";
 import OpenPositions from "./OpenPositions.astro";
 
-const jobs = [
+const benefits = [
   {
-    title: "AI Engineer",
-    location: "Remote / India",
-    type: "Full Time",
+    icon: "fa-solid fa-coins",
+    title: "Competitive Salary",
     description:
-      "Design, build, and deploy AI models and automation solutions for enterprise clients.",
-    requirements: [
-      "2+ years experience in AI/ML",
-      "Proficiency in Python or JavaScript",
-      "Experience with cloud platforms (AWS, Azure, GCP)",
-    ],
+      "Market-leading compensation packages with performance bonuses and equity options",
   },
   {
-    title: "Frontend Developer",
-    location: "Remote / India",
-    type: "Full Time",
-    description: "Develop modern, responsive UIs for our SaaS and AI products.",
-    requirements: [
-      "2+ years experience with React or Vue",
-      "Strong CSS/HTML skills",
-      "Experience with REST APIs",
-    ],
+    icon: "fa-solid fa-heart-pulse",
+    title: "Health & Wellness",
+    description:
+      "Comprehensive health insurance, mental health support, and wellness programs",
   },
   {
-    title: "Product Manager (AI SaaS)",
-    location: "Remote / India",
-    type: "Full Time",
+    icon: "fa-solid fa-clock",
+    title: "Flexible Schedule",
     description:
-      "Lead product strategy and execution for our AI SaaS platforms.",
-    requirements: [
-      "3+ years in product management",
-      "Experience with SaaS products",
-      "Strong communication skills",
-    ],
+      "Work-life balance with flexible hours and remote-first culture",
+  },
+  {
+    icon: "fa-solid fa-graduation-cap",
+    title: "Learning & Development",
+    description:
+      "Annual learning budget, conferences, and skill development opportunities",
+  },
+  {
+    icon: "fa-solid fa-plane-departure",
+    title: "Paid Time Off",
+    description:
+      "Generous PTO policy including vacation days, sick leave, and public holidays",
+  },
+  {
+    icon: "fa-solid fa-laptop",
+    title: "Latest Equipment",
+    description:
+      "Top-tier laptops, monitors, and tools you need to do your best work",
+  },
+];
+
+const values = [
+  {
+    title: "Innovation First",
+    description:
+      "We embrace cutting-edge technology and encourage creative problem-solving",
+    color: "#3b82f6",
+  },
+  {
+    title: "Customer Success",
+    description: "Our customers' success drives everything we do",
+    color: "#8b5cf6",
+  },
+  {
+    title: "Transparency",
+    description: "Open communication, honest feedback, and shared knowledge",
+    color: "#06b6d4",
+  },
+  {
+    title: "Continuous Growth",
+    description: "Always learning, improving, and pushing boundaries",
+    color: "#10b981",
   },
 ];
 ---
 
 <Page
-  metaTitle="Careers at Botify | AI, SaaS & Automation Jobs"
-  metaDescription="Explore open positions at Botify. Join our team of AI, SaaS, and automation experts. Apply for remote jobs in engineering, product, and more."
-  metaKeywords="careers, jobs, AI jobs, SaaS jobs, automation, remote jobs, Botify, hiring"
-  metaImage="https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg"
+  title="Careers at Sibera | Join Our Team"
+  description="Join Sibera and help build the future of business automation. Explore remote career opportunities in engineering, product, design, and more."
 >
-  <DynamicSliderImageStack
-    images={[
-      {
-        src: "https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg",
-        alt: "Teamwork at Botify",
-      },
-      {
-        src: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
-        alt: "Remote Collaboration",
-      },
-      {
-        src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-        alt: "Innovation in AI",
-      },
-      {
-        src: "https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg",
-        alt: "Growth and Learning",
-      },
-      {
-        src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
-        alt: "Diverse Team",
-      },
-      {
-        src: "https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg",
-        alt: "Creative Workspace",
-      },
-    ]}
-  />
-  <OpenPositions />
-  <CareerForm />
+  <!-- Hero Section -->
+  <section
+    class="relative h-[600px] flex items-center justify-center overflow-hidden"
+  >
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.pexels.com/photos/4065133/pexels-photo-4065133.jpeg"
+        alt="Team working together"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gray-900/70"></div>
+    </div>
 
-  <div class="text-center mt-12">
-    <p class="text-gray-600">
-      Don't see a role that fits? Email your resume to <a
-        href="mailto:careers@botify.life"
-        class="text-[#0071e3] underline">careers@botify.life</a
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    >
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        Build the Future with <span class="text-blue-400">Sibera</span>
+      </h1>
+      <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Join our mission to empower businesses worldwide with innovative
+        automation solutions. We're looking for passionate, talented individuals
+        to help shape the future of work.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-8 mb-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">50+</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            Team Members
+          </div>
+        </div>
+        <div class="w-px h-12 bg-gray-700 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">Remote</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            First Culture
+          </div>
+        </div>
+        <div class="w-px h-12 bg-gray-700 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">6</div>
+          <div class="text-sm text-gray-300 uppercase tracking-wider">
+            Open Positions
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="#open-positions"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1"
       >
-    </p>
+        <span>View Open Positions</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Our Values Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          Our Core Values
+        </h2>
+        <p class="text-lg text-gray-600">
+          The principles that guide everything we do
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          values.map((value) => (
+            <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-all duration-300 group">
+              <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div
+                  class="w-3 h-3 rounded-full"
+                  style={`background-color: ${value.color}`}
+                />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {value.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{value.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          Why Work at Sibera
+        </h2>
+        <p class="text-lg text-gray-600">
+          We invest in our team's success and well-being
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+              <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6">
+                <i class={benefit.icon} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {benefit.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{benefit.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions Section -->
+  <div id="open-positions">
+    <OpenPositions />
   </div>
 
-  <DynamicHorizontalTab
-    heading="Why Join Botify?"
-    tabs={[
-      {
-        label: "Why Botify",
-        description: "Our mission and vision",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">Purpose-Driven Innovation</h3>
-                <p>
-                  At Botify, we are passionate about building AI and automation solutions that empower businesses to thrive in a digital world. Our mission is to make advanced technology accessible, ethical, and impactful for organizations of all sizes.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Cutting-edge projects in AI, SaaS, and automation</li>
-                  <li>Direct impact on real-world business challenges</li>
-                  <li>Growth opportunities in a fast-scaling company</li>
-                </ul>
-              </div>`,
-      },
-      {
-        label: "Our Work Culture",
-        description: "How we work together",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">Collaborative & Inclusive</h3>
-                <p>
-                  We foster a culture of openness, respect, and continuous learning. Our remote-first team values flexibility, transparency, and work-life balance. We celebrate diversity and believe the best ideas come from empowered, happy people.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Remote-friendly and flexible schedules</li>
-                  <li>Regular team events and knowledge sharing</li>
-                  <li>Support for personal and professional growth</li>
-                </ul>
-              </div>`,
-      },
-      {
-        label: "Benefits",
-        description: "Perks & advantages",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">We Invest in You</h3>
-                <p>
-                  We offer competitive compensation, health benefits, learning budgets, and the tools you need to do your best work. Your well-being and success are our priorities.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Competitive salary & performance bonuses</li>
-                  <li>Health insurance & wellness programs</li>
-                  <li>Learning & development support</li>
-                </ul>
-              </div>`,
-      },
-    ]}
-  />
+  <!-- CTA Section -->
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Don't See the Right Role?</h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        We're always looking for talented individuals. Send us your resume and
+        let us know how you'd like to contribute to Sibera.
+      </p>
+      <a
+        href="mailto:careers@sibera.work"
+        class="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#333] font-bold rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        <i class="fa-solid fa-envelope text-[#333]"></i>
+        <span class="text-[#333]">Email Your Resume</span>
+      </a>
+    </div>
+  </section>
 </Page>

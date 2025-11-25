@@ -1,7 +1,7 @@
 ---
 import Page from "../../layouts/Page.astro";
 import ThemeWrapper from "../../components/ThemeWrapper.astro";
-import Overview from "../../components/product/Overview.astro";
+import ProductBanner from "../../components/banners/ProductBanner.astro";
 import Features from "../../components/product/Features.astro";
 import Pricing from "../../components/product/Pricing.astro";
 import FAQ from "../../components/product/FAQ.astro";
@@ -12,7 +12,9 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   return allApps.map((app) => ({
-    params: { slug: app.appSlug || app.appName.toLowerCase().replace(/\s+/g, '-') },
+    params: {
+      slug: app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-"),
+    },
     props: { app },
   }));
 }
@@ -26,29 +28,91 @@ if (!app) {
 const theme = getThemeByCategory(app.appCategory);
 const productHeader = {
   name: app.appName,
-  themeColor: theme.primaryColor
+  themeColor: theme.primaryColor,
 };
 
 // Mock Data (In a real app, this would come from a database or CMS based on the app ID)
 const features = [
-  { title: "Seamless Integration", description: "Works perfectly with the entire Sibera ecosystem.", icon: "fa-solid fa-link" },
-  { title: "Advanced Analytics", description: "Gain deep insights with our powerful reporting tools.", icon: "fa-solid fa-chart-line" },
-  { title: "Secure Infrastructure", description: "Enterprise-grade security to keep your data safe.", icon: "fa-solid fa-shield-halved" },
-  { title: "24/7 Support", description: "Our dedicated team is always here to help you.", icon: "fa-solid fa-headset" },
-  { title: "Mobile Ready", description: "Access your data from anywhere, on any device.", icon: "fa-solid fa-mobile-screen" },
-  { title: "Automated Workflows", description: "Save time by automating repetitive tasks.", icon: "fa-solid fa-robot" },
+  {
+    title: "Seamless Integration",
+    description: "Works perfectly with the entire Sibera ecosystem.",
+    icon: "fa-solid fa-link",
+  },
+  {
+    title: "Advanced Analytics",
+    description: "Gain deep insights with our powerful reporting tools.",
+    icon: "fa-solid fa-chart-line",
+  },
+  {
+    title: "Secure Infrastructure",
+    description: "Enterprise-grade security to keep your data safe.",
+    icon: "fa-solid fa-shield-halved",
+  },
+  {
+    title: "24/7 Support",
+    description: "Our dedicated team is always here to help you.",
+    icon: "fa-solid fa-headset",
+  },
+  {
+    title: "Mobile Ready",
+    description: "Access your data from anywhere, on any device.",
+    icon: "fa-solid fa-mobile-screen",
+  },
+  {
+    title: "Automated Workflows",
+    description: "Save time by automating repetitive tasks.",
+    icon: "fa-solid fa-robot",
+  },
 ];
 
 const plans = [
-  { name: "Starter", price: "$0", period: "/mo", features: ["Basic Features", "1 User", "Community Support"], recommended: false },
-  { name: "Pro", price: "$29", period: "/mo", features: ["All Basic Features", "5 Users", "Priority Support", "Advanced Analytics"], recommended: true },
-  { name: "Enterprise", price: "Custom", period: "", features: ["Unlimited Users", "Dedicated Account Manager", "Custom Integrations", "SLA"], recommended: false },
+  {
+    name: "Starter",
+    price: "$0",
+    period: "/mo",
+    features: ["Basic Features", "1 User", "Community Support"],
+    recommended: false,
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    period: "/mo",
+    features: [
+      "All Basic Features",
+      "5 Users",
+      "Priority Support",
+      "Advanced Analytics",
+    ],
+    recommended: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "",
+    features: [
+      "Unlimited Users",
+      "Dedicated Account Manager",
+      "Custom Integrations",
+      "SLA",
+    ],
+    recommended: false,
+  },
 ];
 
 const faqs = [
-  { question: "Is there a free trial?", answer: "Yes, we offer a 14-day free trial on all paid plans." },
-  { question: "Can I cancel anytime?", answer: "Absolutely. You can cancel your subscription at any time without penalty." },
-  { question: "Do you offer discounts for non-profits?", answer: "Yes, please contact our sales team for more information." },
+  {
+    question: "Is there a free trial?",
+    answer: "Yes, we offer a 14-day free trial on all paid plans.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer:
+      "Absolutely. You can cancel your subscription at any time without penalty.",
+  },
+  {
+    question: "Do you offer discounts for non-profits?",
+    answer: "Yes, please contact our sales team for more information.",
+  },
 ];
 ---
 
@@ -59,15 +123,16 @@ const faqs = [
 >
   <ThemeWrapper category={app.appCategory}>
     <main>
-        <Overview 
-            appName={app.appName} 
-            appDescription={app.appDescription} 
-            appLogo={app.appLogo} 
-            appCategory={app.appCategory} 
-        />
-        <Features features={features} />
-        <Pricing plans={plans} />
-        <FAQ faqs={faqs} />
+      <ProductBanner
+        appName={app.appName}
+        appDescription={app.appDescription}
+        appLogo={app.appLogo}
+        bannerImage={app.bannerImage}
+        appCategory={app.appCategory}
+      />
+      <Features features={features} />
+      <Pricing plans={plans} />
+      <FAQ faqs={faqs} />
     </main>
   </ThemeWrapper>
 </Page>
