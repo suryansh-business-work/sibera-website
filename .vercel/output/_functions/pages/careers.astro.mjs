@@ -1,7 +1,8 @@
-import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_DxVpntjF.mjs';
+import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_BH2_nrap.mjs';
 import 'kleur/colors';
-import { $ as $$Page } from '../chunks/Page_VClte8Bg.mjs';
-import { $ as $$OpenPositions } from '../chunks/OpenPositions_C16abFtG.mjs';
+import { $ as $$Page } from '../chunks/Page_C6cacKl3.mjs';
+import { $ as $$OpenPositions } from '../chunks/OpenPositions_FwVTSc8T.mjs';
+import { s as styleConfig } from '../chunks/style-config_DFpW0pmm.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
@@ -59,7 +60,7 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
       color: "#10b981"
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": "Careers at Sibera | Join Our Team", "description": "Join Sibera and help build the future of business automation. Explore remote career opportunities in engineering, product, design, and more." }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="relative h-[600px] flex items-center justify-center overflow-hidden"> <!-- Background Image --> <div class="absolute inset-0 z-0"> <img src="https://images.pexels.com/photos/4065133/pexels-photo-4065133.jpeg" alt="Team working together" class="w-full h-full object-cover"> <div class="absolute inset-0 bg-gray-900/70"></div> </div> <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": "Careers at Sibera | Join Our Team", "description": "Join Sibera and help build the future of business automation. Explore remote career opportunities in engineering, product, design, and more." }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="relative h-[600px] flex items-center justify-center overflow-hidden"> <!-- Background Image --> <div class="absolute inset-0 z-0"> <img src="https://images.pexels.com/photos/4065133/pexels-photo-4065133.jpeg" alt="Team working together" class="w-full h-full object-cover"> <div class="absolute inset-0 bg-gray-900/70"></div> </div> <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> <h1${addAttribute(styleConfig.typography.h1 + " text-white mb-6 tracking-tight", "class")}>
 Build the Future with <span class="text-blue-400">Sibera</span> </h1> <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
 Join our mission to empower businesses worldwide with innovative
         automation solutions. We're looking for passionate, talented individuals
@@ -70,15 +71,23 @@ Team Members
 First Culture
 </div> </div> <div class="w-px h-12 bg-gray-700 hidden sm:block"></div> <div class="text-center"> <div class="text-3xl font-bold text-white mb-1">6</div> <div class="text-sm text-gray-300 uppercase tracking-wider">
 Open Positions
-</div> </div> </div> <a href="#open-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1"> <span>View Open Positions</span> <i class="fa-solid fa-arrow-down"></i> </a> </div> </section>  <section class="py-20 bg-white"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="text-center mb-16"> <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+</div> </div> </div> <a href="#open-positions"${addAttribute(styleConfig.buttons.primary.replace(
+    "from-blue-600 to-blue-500",
+    "bg-blue-600 hover:bg-blue-700"
+  ), "class")}> <span>View Open Positions</span> <i class="fa-solid fa-arrow-down ml-2"></i> </a> </div> </section>  <section class="py-20 bg-white"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="text-center mb-16"> <h2${addAttribute(styleConfig.typography.h2 + " text-gray-900 mb-4", "class")}>
 Our Core Values
 </h2> <p class="text-lg text-gray-600">
 The principles that guide everything we do
-</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> ${values.map((value) => renderTemplate`<div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-all duration-300 group"> <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"> <div class="w-3 h-3 rounded-full"${addAttribute(`background-color: ${value.color}`, "style")}></div> </div> <h3 class="text-xl font-bold text-gray-900 mb-3"> ${value.title} </h3> <p class="text-gray-600 leading-relaxed">${value.description}</p> </div>`)} </div> </div> </section>  <section class="py-20 bg-gray-50"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="text-center mb-16"> <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> ${values.map((value) => renderTemplate`<div${addAttribute(
+    styleConfig.cards.feature + " hover:shadow-lg transition-all duration-300 group",
+    "class"
+  )}> <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"> <div class="w-3 h-3 rounded-full"${addAttribute(`background-color: ${value.color}`, "style")}></div> </div> <h3${addAttribute(styleConfig.typography.h3 + " text-gray-900 mb-3", "class")}> ${value.title} </h3> <p class="text-gray-600 leading-relaxed">${value.description}</p> </div>`)} </div> </div> </section>  <section class="py-20 bg-gray-50"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="text-center mb-16"> <h2${addAttribute(styleConfig.typography.h2 + " text-gray-900 mb-4", "class")}>
 Why Work at Sibera
 </h2> <p class="text-lg text-gray-600">
 We invest in our team's success and well-being
-</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> ${benefits.map((benefit) => renderTemplate`<div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"> <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6"> <i${addAttribute(benefit.icon, "class")}></i> </div> <h3 class="text-xl font-bold text-gray-900 mb-3"> ${benefit.title} </h3> <p class="text-gray-600 leading-relaxed">${benefit.description}</p> </div>`)} </div> </div> </section>  <div id="open-positions"> ${renderComponent($$result2, "OpenPositions", $$OpenPositions, {})} </div>  <section class="py-20 bg-gray-900 text-white"> <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> <h2 class="text-3xl font-bold mb-6">Don't See the Right Role?</h2> <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> ${benefits.map((benefit) => renderTemplate`<div${addAttribute(styleConfig.cards.default + " p-8", "class")}> <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6"> <i${addAttribute(benefit.icon, "class")}></i> </div> <h3${addAttribute(styleConfig.typography.h3 + " text-gray-900 mb-3", "class")}> ${benefit.title} </h3> <p class="text-gray-600 leading-relaxed">${benefit.description}</p> </div>`)} </div> </div> </section>  <div id="open-positions"> ${renderComponent($$result2, "OpenPositions", $$OpenPositions, {})} </div>  <section class="py-20 bg-gray-900 text-white"> <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> <h2${addAttribute(styleConfig.typography.h2 + " mb-6", "class")}>
+Don't See the Right Role?
+</h2> <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
 We're always looking for talented individuals. Send us your resume and
         let us know how you'd like to contribute to Sibera.
 </p> <a href="mailto:careers@sibera.work" class="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#333] font-bold rounded-xl hover:bg-gray-100 transition-colors duration-300"> <i class="fa-solid fa-envelope text-[#333]"></i> <span class="text-[#333]">Email Your Resume</span> </a> </div> </section> ` })}`;

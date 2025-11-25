@@ -1,8 +1,8 @@
-import { c as createComponent, m as maybeRenderHead, r as renderTemplate, f as renderComponent } from '../chunks/astro/server_DxVpntjF.mjs';
+import { c as createComponent, m as maybeRenderHead, r as renderTemplate, f as renderComponent } from '../chunks/astro/server_BH2_nrap.mjs';
 import 'kleur/colors';
 import 'clsx';
 /* empty css                                 */
-import { $ as $$Page } from '../chunks/Page_VClte8Bg.mjs';
+import { $ as $$Page } from '../chunks/Page_C6cacKl3.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$HomeBanner = createComponent(($$result, $$props, $$slots) => {
@@ -18,7 +18,7 @@ Contact Sales
 }, "C:/Users/Suryansh/Desktop/Projects/Sibera/sibera-astro-js-website/src/components/banners/HomeBanner.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Page", $$Page, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HomeBanner", $$HomeBanner, {})} ${maybeRenderHead()}<section class="py-16 bg-white flex flex-col items-center justify-center"> <div class="max-w-6xl w-full px-6 mx-auto"> <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif'; color: #22223b;">
+  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": "Sibera", "description": "Home Page" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HomeBanner", $$HomeBanner, {})} ${maybeRenderHead()}<section class="py-16 bg-white flex flex-col items-center justify-center"> <div class="max-w-6xl w-full px-6 mx-auto"> <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif'; color: #22223b;">
 Integrated <span class="text-blue-600 font-bold">Modules</span> </h2> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <div class="flex flex-col items-center bg-[#f6fafd] rounded-2xl shadow p-8 hover:shadow-lg transition"> <span class="material-symbols-rounded text-blue-600 text-5xl mb-4" style="font-size: 3.5rem;">headset_mic</span> <h3 class="text-xl font-semibold mb-2" style="font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif'; color: #22223b;">
 Support
 </h3> <p class="text-gray-600 text-center" style="font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';">

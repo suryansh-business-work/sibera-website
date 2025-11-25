@@ -1,0 +1,475 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const benefits = [
+  {
+    icon: "dollar-sign",
+    title: "Save Money",
+    description:
+      "Get $500 in free credits plus 50% off for the first year. Save thousands on essential business tools.",
+    features: ["No setup fees", "Cancel anytime"],
+  },
+  {
+    icon: "gauge-high",
+    title: "Scale Fast",
+    description:
+      "Built for growth. Our infrastructure scales with you from 1 to 1000+ users seamlessly.",
+    features: ["Unlimited scalability", "99.9% uptime SLA"],
+  },
+  {
+    icon: "users",
+    title: "Expert Support",
+    description:
+      "Dedicated startup success team to help you get the most out of Sibera.",
+    features: ["1-on-1 onboarding", "Priority support"],
+  },
+];
+
+const modules = [
+  { icon: "headset", name: "Support System", desc: "Manage customer tickets" },
+  { icon: "list-check", name: "Task Management", desc: "Organize your work" },
+  { icon: "folder", name: "File Manager", desc: "Store and share files" },
+  {
+    icon: "file-invoice",
+    name: "Invoicing",
+    desc: "Create professional invoices",
+  },
+  { icon: "clock", name: "Time Tracking", desc: "Track productivity" },
+  { icon: "network-wired", name: "IoT Platform", desc: "Connect devices" },
+];
+
+const faqs = [
+  {
+    q: "Who is eligible for the startup program?",
+    a: "Any early-stage startup (less than 2 years old) with less than 50 employees is eligible. You must not have previously received Sibera credits.",
+  },
+  {
+    q: "How do the free credits work?",
+    a: "You'll receive $500 in credits that can be applied to any Sibera plan. Credits are valid for 12 months and can be used for any of our services.",
+  },
+  {
+    q: "What happens after the credits run out?",
+    a: "You can continue using Sibera at our regular startup pricing (50% off for the first year). No obligation to continue if it's not working for you.",
+  },
+  {
+    q: "How long does approval take?",
+    a: "We typically review applications within 48 hours. You'll receive an email with next steps once approved.",
+  },
+  {
+    q: "Can I switch plans later?",
+    a: "Yes! You can upgrade or downgrade your plan at any time. Unused credits will be applied to your new plan.",
+  },
+];
+---
+
+<Page
+  title="Sibera for Startups | Free Credits Program"
+  description="Accelerate your startup with Sibera. Get free credits and access to our complete business suite to streamline operations and scale faster."
+>
+  <!-- Hero Section with Image Background -->
+  <section
+    class="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900"
+  >
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+        alt="Startup team collaboration"
+        class="w-full h-full object-cover opacity-40"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-indigo-900/80"
+      >
+      </div>
+    </div>
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 py-20 text-center text-white"
+    >
+      <div
+        class="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-green-400/30"
+      >
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-sm font-semibold">Limited Time Offer - Apply Now</span
+        >
+      </div>
+
+      <h1 class={styleConfig.typography.h1 + " text-white mb-6"}>
+        Sibera for <span class="text-yellow-400">Startups</span>
+      </h1>
+
+      <p
+        class="text-2xl md:text-3xl mb-8 text-blue-100 font-light max-w-4xl mx-auto"
+      >
+        Get $500 in free credits and 12 months of premium access to power your
+        startup journey
+      </p>
+
+      <!-- Key Stats -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
+        <div
+          class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+        >
+          <div class="text-4xl font-bold text-yellow-400 mb-2">$500</div>
+          <div class="text-sm text-blue-100">Free Credits</div>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+        >
+          <div class="text-4xl font-bold text-yellow-400 mb-2">12 mo</div>
+          <div class="text-sm text-blue-100">Premium Access</div>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+        >
+          <div class="text-4xl font-bold text-yellow-400 mb-2">50%</div>
+          <div class="text-sm text-blue-100">Off First Year</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#apply" class={styleConfig.buttons.primary + " text-lg"}>
+          Apply for Free Credits
+          <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+        <a
+          href="#benefits"
+          class={styleConfig.buttons.secondary +
+            " text-lg bg-white/20 border-white/30 text-white hover:bg-white/30"}
+        >
+          Learn More
+          <i class="fa-solid fa-chevron-down ml-2"></i>
+        </a>
+      </div>
+
+      <div
+        class="flex flex-wrap justify-center gap-6 mt-6 text-sm text-blue-100"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-400"></i>
+          <span>No credit card required</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-400"></i>
+          <span>Setup in 5 minutes</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-400"></i>
+          <span>Approved in 48 hours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-24 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class={styleConfig.typography.h2 + " text-gray-900 mb-4"}>
+          Why Startups Choose Sibera
+        </h2>
+        <p
+          class={styleConfig.typography.bodyLarge +
+            " text-gray-600 max-w-3xl mx-auto"}
+        >
+          Everything you need to run your startup efficiently, all in one place
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class={styleConfig.cards.feature}>
+              <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                <i class={`fa-solid fa-${benefit.icon} text-3xl text-white`} />
+              </div>
+              <h3 class={styleConfig.typography.h3 + " text-gray-900 mb-3"}>
+                {benefit.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                {benefit.description}
+              </p>
+              <ul class="space-y-3">
+                {benefit.features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm text-gray-600">
+                    <i class="fa-solid fa-check text-green-500" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Included -->
+  <section class="py-24 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class={styleConfig.typography.h2 + " text-gray-900 mb-4"}>
+          Complete Business Suite Included
+        </h2>
+        <p class={styleConfig.typography.bodyLarge + " text-gray-600"}>
+          All the tools you need to run your startup
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          modules.map((module) => (
+            <div class="flex items-start gap-4 p-6 rounded-xl bg-white hover:shadow-lg transition-all border border-gray-100">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class={`fa-solid fa-${module.icon} text-blue-600 text-xl`} />
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">{module.name}</h4>
+                <p class="text-sm text-gray-600">{module.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section id="apply" class="py-24 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class={styleConfig.typography.h2 + " text-gray-900 mb-4"}>
+          Apply for Free Credits
+        </h2>
+        <p class={styleConfig.typography.bodyLarge + " text-gray-600"}>
+          Join hundreds of startups already building on Sibera
+        </p>
+      </div>
+
+      <div class={styleConfig.cards.default + " p-8 md:p-12"}>
+        <form
+          class="space-y-6"
+          name="startup-application"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="startup-application" />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label
+                for="founder-name"
+                class="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Founder Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="founder-name"
+                name="founder-name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                placeholder="john@startup.com"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="company-name"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Startup Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="company-name"
+              name="company-name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              placeholder="Your Startup Inc."
+            />
+          </div>
+
+          <div>
+            <label
+              for="website"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Website URL
+            </label>
+            <input
+              type="url"
+              id="website"
+              name="website"
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              placeholder="https://yourstartup.com"
+            />
+          </div>
+
+          <div>
+            <label
+              for="team-size"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Team Size <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="team-size"
+              name="team-size"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+            >
+              <option value="">Select team size</option>
+              <option value="1-5">1-5 people</option>
+              <option value="6-10">6-10 people</option>
+              <option value="11-25">11-25 people</option>
+              <option value="26-50">26-50 people</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Tell us about your startup <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-vertical"
+              placeholder="What problem are you solving? What stage are you at?"
+            ></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              class="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label for="terms" class="text-sm text-gray-600">
+              I agree to the <a
+                href="/policies/terms"
+                class="text-blue-600 hover:underline font-medium"
+                >Terms of Service</a
+              > and <a
+                href="/policies/privacy"
+                class="text-blue-600 hover:underline font-medium"
+                >Privacy Policy</a
+              >
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class={styleConfig.buttons.primary + " w-full text-lg py-4"}
+          >
+            Submit Application
+            <i class="fa-solid fa-paper-plane ml-2"></i>
+          </button>
+
+          <p class="text-center text-sm text-gray-500">
+            We'll review your application and get back to you within 48 hours
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class={styleConfig.typography.h2 + " text-gray-900 mb-4"}>
+          Frequently Asked Questions
+        </h2>
+        <p class={styleConfig.typography.bodyLarge + " text-gray-600"}>
+          Everything you need to know about the program
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          faqs.map((faq, index) => (
+            <details class="group bg-white rounded-xl p-6 hover:shadow-md transition-all border border-gray-100">
+              <summary class="flex items-center justify-between cursor-pointer list-none">
+                <span class="font-bold text-lg text-gray-900 pr-4">
+                  {faq.q}
+                </span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" />
+              </summary>
+              <p class="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-24 px-4 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        Ready to Build Your Startup with Sibera?
+      </h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Join the startup revolution. Get $500 in free credits today.
+      </p>
+      <a
+        href="#apply"
+        class="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 text-lg"
+      >
+        Apply Now - It's Free
+        <i class="fa-solid fa-rocket"></i>
+      </a>
+      <p class="mt-6 text-sm text-blue-200">
+        No credit card required • Approved in 48 hours
+      </p>
+    </div>
+  </section>
+</Page>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section > div {
+    animation: fadeIn 0.6s ease-out;
+  }
+</style>

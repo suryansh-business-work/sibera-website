@@ -1,6 +1,6 @@
-import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_DxVpntjF.mjs';
+import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_BH2_nrap.mjs';
 import 'kleur/colors';
-import { $ as $$Page } from '../../chunks/Page_VClte8Bg.mjs';
+import { $ as $$Page } from '../../chunks/Page_C6cacKl3.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Cookies = createComponent(($$result, $$props, $$slots) => {

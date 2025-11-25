@@ -81,7 +81,6 @@ textarea:focus:not(:focus-visible) {
 /* Ensure links are properly styled */
 a {
   text-decoration: none;
-  color: inherit;
   transition: color 0.15s ease;
 }
 
