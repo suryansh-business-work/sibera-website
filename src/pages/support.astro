@@ -1,0 +1,301 @@
+---
+import Page from "../layouts/Page.astro";
+import { styleConfig } from "../config/style-config";
+
+const supportCategories = [
+  {
+    icon: "book",
+    title: "Knowledge Base",
+    description: "Browse our comprehensive documentation and guides",
+    link: "#knowledge-base",
+  },
+  {
+    icon: "comments",
+    title: "Community Forum",
+    description: "Connect with other users and share experiences",
+    link: "#forum",
+  },
+  {
+    icon: "video",
+    title: "Video Tutorials",
+    description: "Watch step-by-step video guides",
+    link: "#tutorials",
+  },
+  {
+    icon: "headset",
+    title: "Contact Support",
+    description: "Get help from our support team",
+    link: "#contact",
+  },
+];
+
+const popularArticles = [
+  { title: "Getting Started with Sibera", category: "Basics", views: "12.5k" },
+  {
+    title: "How to Create Your First Project",
+    category: "Projects",
+    views: "8.2k",
+  },
+  { title: "Setting Up Integrations", category: "Integrations", views: "6.8k" },
+  { title: "Managing Team Permissions", category: "Teams", views: "5.4k" },
+  { title: "Billing and Subscriptions", category: "Account", views: "4.9k" },
+  { title: "API Authentication Guide", category: "Developers", views: "3.7k" },
+];
+---
+
+<Page
+  title="Help & Support | Sibera"
+  description="Get help with Sibera. Access our knowledge base, community forum, video tutorials, and contact support."
+>
+  <!-- Hero Section -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        How can we help you?
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Search our knowledge base or browse by category
+      </p>
+
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto mb-12">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Search for help articles, guides, tutorials..."
+            class="w-full px-6 py-4 pr-14 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
+            id="support-search"
+          />
+          <button
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600"
+          >
+            <i class="fa-solid fa-search text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Support Categories Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          supportCategories.map((category) => (
+            <a
+              href={category.link}
+              class="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all group"
+            >
+              <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                <i
+                  class={`fa-solid fa-${category.icon} text-blue-600 text-2xl group-hover:text-white transition-colors`}
+                />
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">{category.title}</h3>
+              <p class="text-sm text-gray-600">{category.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Articles -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Popular Help Articles
+        </h2>
+        <p class="text-xl text-gray-600">Most viewed guides by our users</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          popularArticles.map((article) => (
+            <a
+              href="#"
+              class="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-100"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                  {article.category}
+                </span>
+                <div class="flex items-center gap-1 text-sm text-gray-500">
+                  <i class="fa-solid fa-eye" />
+                  <span>{article.views}</span>
+                </div>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600">
+                {article.title}
+              </h3>
+              <div class="flex items-center text-blue-600 text-sm font-semibold">
+                Read more
+                <i class="fa-solid fa-arrow-right ml-2" />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Support Section -->
+  <section id="contact" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Contact Support</h2>
+        <p class="text-xl text-gray-600">Choose the best way to reach us</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Email Support -->
+        <div
+          class="bg-white border-2 border-gray-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-envelope text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Email Support</h3>
+          <p class="text-gray-600 mb-6">Get a response within 24 hours</p>
+          <a
+            href="mailto:support@sibera.work"
+            class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline"
+          >
+            support@sibera.work
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Live Chat -->
+        <div
+          class="bg-white border-2 border-gray-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+        >
+          <div
+            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-comment text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Live Chat</h3>
+          <p class="text-gray-600 mb-6">Chat with us in real-time</p>
+          <button
+            class={styleConfig.buttons.primary}
+            onclick="alert('Live chat feature coming soon!')"
+          >
+            Start Chat
+            <i class="fa-solid fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+
+        <!-- Phone Support -->
+        <div
+          class="bg-white border-2 border-gray-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+        >
+          <div
+            class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-phone text-purple-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Phone Support</h3>
+          <p class="text-gray-600 mb-6">Enterprise plans only</p>
+          <a
+            href="tel:+1234567890"
+            class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline"
+          >
+            +1 (234) 567-890
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Quick Links</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          [
+            { icon: "question-circle", title: "FAQ", link: "/faq" },
+            { icon: "book-open", title: "Documentation", link: "#" },
+            { icon: "code", title: "API Reference", link: "#" },
+            { icon: "graduation-cap", title: "Academy", link: "/academy" },
+            { icon: "users", title: "Community", link: "#" },
+            { icon: "bug", title: "Report a Bug", link: "#" },
+            { icon: "lightbulb", title: "Feature Request", link: "#" },
+            { icon: "shield-alt", title: "Security", link: "#" },
+          ].map((item) => (
+            <a
+              href={item.link}
+              class="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-shadow border border-gray-100"
+            >
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class={`fa-solid fa-${item.icon} text-blue-600`} />
+              </div>
+              <span class="font-semibold text-gray-900">{item.title}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Status -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-green-50 border-2 border-green-200 rounded-xl p-8">
+        <div
+          class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <i class="fa-solid fa-check text-white text-2xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+          All Systems Operational
+        </h3>
+        <p class="text-gray-600 mb-4">
+          All Sibera services are running smoothly
+        </p>
+        <a href="#" class="text-blue-600 font-semibold hover:underline">
+          View Status Page →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Need Help CTA -->
+  <section class="py-20 px-4 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">Still Need Help?</h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Our support team is here to assist you
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+        >
+          Contact Support
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a
+          href="/demo"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border border-white/30"
+        >
+          Schedule a Demo
+          <i class="fa-solid fa-calendar"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<script>
+  // Simple search functionality
+  document.getElementById("support-search")?.addEventListener("input", (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    console.log("Searching for:", searchTerm);
+    // In a real implementation, this would filter articles or perform a search
+  });
+</script>

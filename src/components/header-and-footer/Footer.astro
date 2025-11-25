@@ -6,9 +6,40 @@ import { footerMenuData } from "./data/menu-data";
   <h2 id="footer-heading" class="sr-only">Footer</h2>
 
   <div class="footer-container">
-    <!-- Top Section -->
+    <!-- Newsletter Section - Full Width Top -->
+    <div class="newsletter-section mt-8">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h3 class="newsletter-title">Stay Updated</h3>
+          <p class="newsletter-description">
+            Get the latest updates and insights delivered to your inbox.
+          </p>
+        </div>
+        <form class="newsletter-form" aria-label="Newsletter signup">
+          <div class="input-group">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              aria-label="Email address"
+              required
+              class="newsletter-input"
+            />
+            <button
+              type="submit"
+              class="newsletter-btn"
+              aria-label="Subscribe to newsletter"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Subscribe</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Content -->
     <div class="footer-top">
-      <!-- Company Info & Newsletter -->
+      <!-- Company Info -->
       <div class="footer-brand">
         <div class="brand-logo">
           <span class="logo-text">Sibera</span>
@@ -18,75 +49,82 @@ import { footerMenuData } from "./data/menu-data";
           Empowering businesses with an all-in-one platform for Support, Tasks,
           File Management, Invoicing, Time Tracking, and IoT integration.
         </p>
-
-        <!-- Newsletter Signup -->
-        <div class="newsletter">
-          <h3 class="newsletter-title">Stay Updated</h3>
-          <p class="newsletter-description">
-            Get the latest updates and insights delivered to your inbox.
-          </p>
-          <form class="newsletter-form" aria-label="Newsletter signup">
-            <div class="input-group">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                aria-label="Email address"
-                required
-                class="newsletter-input"
-              />
-              <button
-                type="submit"
-                class="newsletter-btn"
-                aria-label="Subscribe to newsletter"
-              >
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>Subscribe</span>
-              </button>
-            </div>
-          </form>
-        </div>
       </div>
 
       <!-- Navigation Links -->
       <nav class="footer-nav" aria-label="Footer navigation">
-        <!-- Products Section (Featured) -->
+        <!-- Products -->
         <div class="footer-section">
-          <h3 class="section-title">Links</h3>
+          <h3 class="section-title">Products</h3>
           <ul class="link-list">
             <li>
               <a href="/all-products" class="footer-link featured">
                 All Products
               </a>
             </li>
-            <li>
-              <a href="/startups" class="footer-link">Sibera for Startups</a>
-            </li>
           </ul>
         </div>
 
-        <!-- Company Section -->
+        <!-- Company -->
         <div class="footer-section">
           <h3 class="section-title">Company</h3>
           <ul class="link-list">
             <li><a href="/about" class="footer-link">About Us</a></li>
             <li><a href="/careers" class="footer-link">Careers</a></li>
+            <li>
+              <a href="/customers" class="footer-link">Customer Stories</a>
+            </li>
             <li><a href="/blog" class="footer-link">Blog</a></li>
-            <li><a href="/contact" class="footer-link">Contact</a></li>
+            <li><a href="/contact" class="footer-link">Contact Sales</a></li>
           </ul>
         </div>
 
-        <!-- Pricing & Resources -->
+        <!-- Resources -->
         <div class="footer-section">
-          <h3 class="section-title">Pricing & Resources</h3>
+          <h3 class="section-title">Resources</h3>
           <ul class="link-list">
             <li>
               <a href="/pricing" class="footer-link featured">
                 <i class="fa-solid fa-tags"></i>
-                View Pricing
+                Pricing
               </a>
             </li>
-            <li><a href="/support" class="footer-link">Help Center</a></li>
-            <li><a href="/api" class="footer-link">API Docs</a></li>
+            <li><a href="/faq" class="footer-link">FAQ</a></li>
+            <li><a href="/academy" class="footer-link">Academy</a></li>
+            <li><a href="/demo" class="footer-link">Get a Demo</a></li>
+            <li><a href="/trial" class="footer-link">Start Free Trial</a></li>
+          </ul>
+        </div>
+
+        <!-- Programs -->
+        <div class="footer-section">
+          <h3 class="section-title">Programs</h3>
+          <ul class="link-list">
+            <li>
+              <a href="/startups" class="footer-link">Sibera for Startups</a>
+            </li>
+            <li>
+              <a href="/affiliate" class="footer-link">Affiliate Program</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-section">
+          <h3 class="section-title">Legal</h3>
+          <ul class="link-list">
+            <li>
+              <a href="/policies/privacy" class="footer-link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/policies/terms" class="footer-link">Terms of Service</a>
+            </li>
+            <li>
+              <a href="/policies/cookies" class="footer-link">Cookie Policy</a>
+            </li>
+            <li>
+              <a href="/policies/data" class="footer-link">Data Policy</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -107,12 +145,12 @@ import { footerMenuData } from "./data/menu-data";
               <span>+1 (234) 567-890</span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <div class="contact-item">
               <i class="fa-solid fa-location-dot"></i>
               <span>San Francisco, CA</span>
             </div>
-          </li>
+          </li> -->
         </ul>
 
         <h4 class="social-title">Follow Us</h4>
@@ -205,8 +243,60 @@ import { footerMenuData } from "./data/menu-data";
   .footer-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 1.5rem;
     overflow-x: hidden;
+  }
+
+  /* Newsletter Section - Full Width Top */
+  .newsletter-section {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid #334155;
+    padding: 2.5rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .newsletter-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .newsletter-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  .newsletter-text {
+    flex: 1;
+  }
+
+  .newsletter-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-description {
+    font-size: 0.938rem;
+    color: #cbd5e1;
+    margin: 0;
+  }
+
+  .newsletter-form {
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
   }
 
   /* Top Section */
@@ -221,13 +311,13 @@ import { footerMenuData } from "./data/menu-data";
 
   @media (min-width: 1024px) {
     .footer-top {
-      grid-template-columns: 1.2fr 1.8fr 1fr;
+      grid-template-columns: 1fr 2.5fr;
     }
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     .footer-top {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.5fr;
     }
   }
 
@@ -269,31 +359,6 @@ import { footerMenuData } from "./data/menu-data";
     color: #cbd5e1;
     line-height: 1.6;
     font-size: 0.938rem;
-  }
-
-  /* Newsletter */
-  .newsletter {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .newsletter-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-
-  .newsletter-description {
-    font-size: 0.875rem;
-    color: #cbd5e1;
-    margin-bottom: 1rem;
-  }
-
-  .newsletter-form {
-    width: 100%;
   }
 
   .input-group {
@@ -353,6 +418,12 @@ import { footerMenuData } from "./data/menu-data";
   }
 
   @media (min-width: 640px) {
+    .footer-nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
     .footer-nav {
       grid-template-columns: repeat(3, 1fr);
     }

@@ -1,0 +1,151 @@
+---
+import Page from "../layouts/Page.astro";
+
+const stories = [
+  {
+    company: "TechStart Solutions",
+    industry: "SaaS",
+    logo: "https://ik.imagekit.io/esdata1/exyconn/logo/exyconn.svg",
+    testimonial: "Sibera helped us reduce operational costs by 35% and improve team productivity significantly. The integrated platform eliminated the need for multiple tools.",
+    author: "Sarah Johnson",
+    role: "CEO",
+    metrics: [
+      { label: "Cost Reduction", value: "35%" },
+      { label: "Time Saved", value: "20hrs/week" },
+      { label: "Team Growth", value: "3x" }
+    ]
+  },
+  {
+    company: "GrowthCo",
+    industry: "E-commerce",
+    logo: "https://ik.imagekit.io/esdata1/exyconn/logo/exyconn.svg",
+    testimonial: "The support ticketing system alone was worth it. We've seen customer satisfaction scores increase by 45% since implementing Sibera.",
+    author: "Michael Chen",
+    role: "Operations Director",
+    metrics: [
+      { label: "CSAT Score", value: "+45%" },
+      { label: "Response Time", value: "-60%" },
+      { label: "Tickets Resolved", value: "+120%" }
+    ]
+  },
+  {
+    company: "InnovateLab",
+    industry: "Consulting",
+    logo: "https://ik.imagekit.io/esdata1/exyconn/logo/exyconn.svg",
+    testimonial: "Sibera's time tracking and invoicing features have streamlined our entire billing process. We're now getting paid 40% faster.",
+    author: "Emily Rodriguez",
+    role: "Founder",
+    metrics: [
+      { label: "Faster Payments", value: "40%" },
+      { label: "Billing Accuracy", value: "99%" },
+      { label: "Admin Time", value: "-50%" }
+    ]
+  }
+];
+---
+
+<Page
+  title="Customer Success Stories | Sibera"
+  description="Read how businesses like yours are succeeding with Sibera. Real stories from real customers."
+>
+  <!-- Hero Section -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        Customer Success Stories
+      </h1>
+      <p class="text-xl text-gray-600">
+        See how businesses are transforming their operations with Sibera
+      </p>
+    </div>
+  </section>
+
+  <!-- Customer Stories -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-16">
+      {stories.map((story, index) => (
+        <div class={`bg-white rounded-2xl shadow-lg overflow-hidden ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+          <div class="grid lg:grid-cols-2 gap-0">
+            <!-- Content Side -->
+            <div class="p-8 md:p-12">
+              {/* <img
+                src={story.logo}
+                alt={story.company}
+                class="h-12 mb-6"
+              /> */}
+              
+              <div class="mb-4">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full">
+                  {story.industry}
+                </span>
+              </div>
+              
+              <blockquote class="text-xl text-gray-700 leading-relaxed mb-6 italic">
+                "{story.testimonial}"
+              </blockquote>
+              
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-user text-gray-500 text-xl"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">{story.author}</div>
+                  <div class="text-sm text-gray-600">{story.role}, {story.company}</div>
+                </div>
+              </div>
+              
+              <div class="pt-6 border-t border-gray-200">
+                <h3 class="font-bold text-gray-900 mb-4">Key Results</h3>
+                <div class="grid grid-cols-3 gap-4">
+                  {story.metrics.map((metric) => (
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-blue-600">{metric.value}</div>
+                      <div class="text-xs text-gray-600">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <!-- Image Side -->
+            <div class="bg-blue-600 p-12 flex items-center justify-center">
+              <div class="text-center text-white">
+                <i class="fa-solid fa-quote-left text-6xl opacity-20 mb-6"></i>
+                <div class="text-4xl font-bold mb-2">{story.company}</div>
+                <div class="text-blue-200">{story.industry} Industry</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-4 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">
+        Ready to Write Your Success Story?
+      </h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Join hundreds of businesses already succeeding with Sibera
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/trial"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+        >
+          Start Free Trial
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a
+          href="/demo"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border border-white/30"
+        >
+          Schedule a Demo
+          <i class="fa-solid fa-calendar"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>

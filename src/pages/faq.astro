@@ -1,0 +1,177 @@
+---
+import Page from "../layouts/Page.astro";
+
+const faqs = [
+  {
+    category: "General",
+    questions: [
+      {
+        q: "What is Sibera?",
+        a: "Sibera is an all-in-one business platform that combines Support, Tasks, File Management, Invoicing, Time Tracking, and IoT capabilities into a single, integrated solution.",
+      },
+      {
+        q: "Who is Sibera for?",
+        a: "Sibera is designed for businesses of all sizes - from startups to enterprises. Whether you're a solopreneur or managing a team of 1000+, Sibera scales with your needs.",
+      },
+      {
+        q: "Is there a free trial?",
+        a: "Yes! We offer a 14-day free trial with full access to all features. No credit card required to start.",
+      },
+    ],
+  },
+  {
+    category: "Pricing & Plans",
+    questions: [
+      {
+        q: "What plans do you offer?",
+        a: "We offer Free, Starter, Professional, and Enterprise plans. Each plan is designed to meet different business needs and scales.",
+      },
+      {
+        q: "Can I change plans later?",
+        a: "Absolutely! You can upgrade or downgrade your plan at any time. Changes are prorated automatically.",
+      },
+      {
+        q: "Do you offer discounts for startups?",
+        a: "Yes! Check out our Sibera for Startups program where eligible startups get $500 in free credits plus 50% off for the first year.",
+      },
+    ],
+  },
+  {
+    category: "Features & Integrations",
+    questions: [
+      {
+        q: "What modules are included?",
+        a: "Sibera includes Support ticketing, Task management, File Manager, Invoicing, Time Tracker, and IoT platform - all integrated seamlessly.",
+      },
+      {
+        q: "Can I integrate with other tools?",
+        a: "Yes! Sibera offers integrations with popular tools and platforms. We also provide a robust API for custom integrations.",
+      },
+      {
+        q: "Is my data secure?",
+        a: "Security is our top priority. We use enterprise-grade encryption, regular security audits, and comply with major data protection regulations.",
+      },
+    ],
+  },
+  {
+    category: "Support & Training",
+    questions: [
+      {
+        q: "What support do you provide?",
+        a: "We offer email support for all plans, priority support for Professional plans, and dedicated account management for Enterprise customers.",
+      },
+      {
+        q: "Do you provide training?",
+        a: "Yes! We offer comprehensive onboarding, video tutorials, documentation, and our Sibera Academy for in-depth learning.",
+      },
+      {
+        q: "What is your SLA?",
+        a: "We maintain 99.9% uptime SLA for all paid plans with 24/7 monitoring and redundancy.",
+      },
+    ],
+  },
+];
+---
+
+<Page
+  title="Frequently Asked Questions | Sibera"
+  description="Find answers to common questions about Sibera, our features, pricing, and support."
+>
+  <!-- Hero Section -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Find answers to common questions about Sibera
+      </p>
+
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Search for answers..."
+            class="w-full px-6 py-4 pr-12 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
+            id="faq-search"
+          />
+          <i
+            class="fa-solid fa-search absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-xl"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Sections -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      {
+        faqs.map((section, sectionIndex) => (
+          <div class="mb-16 last:mb-0">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-blue-500">
+              {section.category}
+            </h2>
+
+            <div class="space-y-4">
+              {section.questions.map((faq, index) => (
+                <details class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-gray-100 faq-item">
+                  <summary class="flex items-start justify-between cursor-pointer list-none">
+                    <span class="font-bold text-lg text-gray-900 pr-8 flex-1">
+                      {faq.q}
+                    </span>
+                    <i class="fa-solid fa-chevron-down text-blue-600 group-open:rotate-180 transition-transform flex-shrink-0 mt-1" />
+                  </summary>
+                  <p class="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Still Have Questions CTA -->
+  <section class="py-20 px-4 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">Still Have Questions?</h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Our team is here to help you get started with Sibera
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+        >
+          Contact Support
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a
+          href="/demo"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border border-white/30"
+        >
+          Schedule a Demo
+          <i class="fa-solid fa-calendar"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<script>
+  document.getElementById("faq-search")?.addEventListener("input", (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const text = item.textContent?.toLowerCase() || "";
+      if (text.includes(searchTerm)) {
+        (item as HTMLElement).style.display = "block";
+      } else {
+        (item as HTMLElement).style.display = "none";
+      }
+    });
+  });
+</script>

@@ -1,0 +1,80 @@
+---
+import Page from "../layouts/Page.astro";
+---
+
+<Page
+  title="Sibera Academy | Learn & Grow"
+  description="Master Sibera with our comprehensive courses, tutorials, and certifications."
+>
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Sibera Academy
+        </h1>
+        <p class="text-xl text-gray-600">
+          Master Sibera with expert-led courses and certifications
+        </p>
+      </div>
+
+      <!-- Course Categories -->
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          [
+            {
+              title: "Getting Started",
+              icon: "rocket",
+              courses: ["Platform Overview", "Setup Guide", "First Steps"],
+              level: "Beginner",
+            },
+            {
+              title: "Advanced Features",
+              icon: "gear",
+              courses: ["Custom Workflows", "Integrations", "API Usage"],
+              level: "Intermediate",
+            },
+            {
+              title: "Certification",
+              icon: "certificate",
+              courses: [
+                "Admin Certification",
+                "Developer Track",
+                "Expert Level",
+              ],
+              level: "Advanced",
+            },
+          ].map((category) => (
+            <div class="bg-white border-2 border-gray-100 rounded-xl p-8 hover:shadow-lg transition-shadow">
+              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <i
+                  class={`fa-solid fa-${category.icon} text-blue-600 text-2xl`}
+                />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                {category.title}
+              </h3>
+              <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-4">
+                {category.level}
+              </span>
+              <ul class="space-y-2 mb-6">
+                {category.courses.map((course) => (
+                  <li class="flex items-center gap-2 text-gray-600">
+                    <i class="fa-solid fa-check text-green-500" />
+                    {course}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline"
+              >
+                View Courses
+                <i class="fa-solid fa-arrow-right" />
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Page>
