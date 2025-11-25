@@ -1,6 +1,6 @@
 import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_Db4HblM3.mjs';
 import 'kleur/colors';
-import { $ as $$Page } from '../chunks/Page_CwCVTAVJ.mjs';
+import { $ as $$Page } from '../chunks/Page_DI-YSTEV.mjs';
 import { $ as $$OpenPositions } from '../chunks/OpenPositions_DjZvqqY8.mjs';
 import { s as styleConfig } from '../chunks/style-config_DFpW0pmm.mjs';
 export { renderers } from '../renderers.mjs';

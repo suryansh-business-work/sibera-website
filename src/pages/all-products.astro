@@ -20,28 +20,25 @@ const totalApps = Object.values(appsByCategory).reduce(
   <!-- Hero Section -->
   <section class="all-products-hero">
     <div class="hero-container">
-      <h1 class="hero-title">
-        All <span class="highlight">Products</span>
-      </h1>
+      <h1 class="hero-title">All Products</h1>
       <p class="hero-description">
         Explore our complete suite of {totalApps}+ business applications
         designed to transform your operations
       </p>
       <div class="hero-stats">
         <div class="stat-item">
-          <i class="fa-solid fa-layer-group"></i>
           <span class="stat-value">{categories.length}</span>
           <span class="stat-label">Categories</span>
         </div>
+        <div class="stat-divider"></div>
         <div class="stat-item">
-          <i class="fa-solid fa-rocket"></i>
           <span class="stat-value">{totalApps}</span>
           <span class="stat-label">Applications</span>
         </div>
+        <div class="stat-divider"></div>
         <div class="stat-item">
-          <i class="fa-solid fa-star"></i>
-          <span class="stat-value">All-in-One</span>
-          <span class="stat-label">Platform</span>
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Integrated</span>
         </div>
       </div>
     </div>
@@ -51,12 +48,12 @@ const totalApps = Object.values(appsByCategory).reduce(
   <section class="products-section">
     <div class="products-container">
       {
-        categories.map((category) => {
+        categories.map((category, categoryIndex) => {
           const apps = appsByCategory[category];
           const theme = getThemeByCategory(category);
 
           return (
-            <div class="category-section">
+            <div class="category-section" data-category-index={categoryIndex}>
               <div class="category-header">
                 <h2 class="category-title">{category}</h2>
                 <span class="category-count">
@@ -65,18 +62,18 @@ const totalApps = Object.values(appsByCategory).reduce(
               </div>
 
               <div class="apps-grid">
-                {apps.map((app) => (
+                {apps.map((app, appIndex) => (
                   <a
                     href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-")}`}
                     class="app-card"
+                    data-app-index={appIndex}
                   >
-                    <div class="app-card-header">
-                      <div
-                        class="app-icon"
-                        style={`background-color: ${theme.primaryColor};`}
-                      >
-                        <img src={app.appLogo} alt={app.appName} />
-                      </div>
+                    <div class="app-header">
+                      <img
+                        src={app.appLogo}
+                        alt={app.appName}
+                        class="app-logo"
+                      />
                       <span
                         class={`app-status ${app.launchState === "mvp" ? "status-available" : "status-coming"}`}
                       >
@@ -111,17 +108,14 @@ const totalApps = Object.values(appsByCategory).reduce(
     <div class="cta-container">
       <h2 class="cta-title">Ready to Get Started?</h2>
       <p class="cta-description">
-        Join thousands of businesses streamlining their operations with Sibera
+        Join thousands of businesses streamlining their operations
       </p>
       <div class="cta-buttons">
-        <a href="http://localhost:5173/signup" class="cta-btn cta-primary">
-          <i class="fa-solid fa-rocket"></i>
+        <a href="/trial" class="cta-btn cta-primary">
           Start Free Trial
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <a href="/contact" class="cta-btn cta-secondary">
-          <i class="fa-solid fa-envelope"></i>
-          Contact Sales
-        </a>
+        <a href="/contact" class="cta-btn cta-secondary"> Contact Sales </a>
       </div>
     </div>
   </section>
@@ -130,60 +124,44 @@ const totalApps = Object.values(appsByCategory).reduce(
 <style>
   /* Hero Section */
   .all-products-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .all-products-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
-    opacity: 0.3;
+    background: #ffffff;
+    padding: 5rem 1.5rem 4rem;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
     text-align: center;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    color: white;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 900;
+    color: #111827;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .highlight {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    letter-spacing: -0.03em;
+    animation: fadeInUp 0.6s ease-out;
   }
 
   .hero-description {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #6b7280;
     margin-bottom: 3rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
   }
 
   .hero-stats {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 3rem;
     flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
   }
 
   .stat-item {
@@ -191,30 +169,33 @@ const totalApps = Object.values(appsByCategory).reduce(
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    color: white;
-  }
-
-  .stat-item i {
-    font-size: 2rem;
-    opacity: 0.8;
   }
 
   .stat-value {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1;
   }
 
   .stat-label {
     font-size: 0.875rem;
-    opacity: 0.8;
+    color: #6b7280;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 60px;
+    background: #e5e7eb;
   }
 
   /* Products Section */
   .products-section {
     padding: 4rem 1.5rem;
-    background: #f8f9fa;
+    background: #f9fafb;
   }
 
   .products-container {
@@ -224,6 +205,21 @@ const totalApps = Object.values(appsByCategory).reduce(
 
   .category-section {
     margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .category-section:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .category-section:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .category-section:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .category-section:nth-child(4) {
+    animation-delay: 0.4s;
   }
 
   .category-header {
@@ -232,98 +228,118 @@ const totalApps = Object.values(appsByCategory).reduce(
     justify-content: space-between;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 3px solid #667eea;
+    border-bottom: 2px solid #e5e7eb;
   }
 
   .category-title {
     font-size: 2rem;
-    font-weight: 700;
-    color: #1a202c;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
   }
 
   .category-count {
-    background: #667eea;
+    background: #111827;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   /* Apps Grid */
   .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
   }
 
   .app-card {
     background: white;
     border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    padding: 1.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    border: 2px solid transparent;
+    border: 2px solid #f3f4f6;
+    opacity: 0;
+    animation: fadeInScale 0.4s ease-out forwards;
+  }
+
+  .app-card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .app-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .app-card:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .app-card:nth-child(4) {
+    animation-delay: 0.05s;
+  }
+  .app-card:nth-child(5) {
+    animation-delay: 0.1s;
+  }
+  .app-card:nth-child(6) {
+    animation-delay: 0.15s;
   }
 
   .app-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
-    border-color: #667eea;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-color: #3b82f6;
   }
 
-  .app-card-header {
+  .app-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 
-  .app-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 0.75rem;
-    padding: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .app-icon img {
-    width: 100%;
-    height: 100%;
+  .app-logo {
+    width: 56px;
+    height: 56px;
     object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .app-card:hover .app-logo {
+    transform: scale(1.1);
   }
 
   .app-status {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    padding: 0.375rem 0.75rem;
-    border-radius: 1rem;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1.5rem;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
+    border: 2px solid;
   }
 
   .status-available {
     background: #d1fae5;
     color: #065f46;
+    border-color: #10b981;
   }
 
   .status-coming {
     background: #fef3c7;
     color: #92400e;
+    border-color: #f59e0b;
   }
 
   .status-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .status-available .status-dot {
@@ -336,39 +352,47 @@ const totalApps = Object.values(appsByCategory).reduce(
 
   .app-title {
     font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 0.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .app-card:hover .app-title {
+    color: #3b82f6;
   }
 
   .app-description {
-    color: #4a5568;
+    color: #6b7280;
     line-height: 1.6;
     flex-grow: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.938rem;
   }
 
   .app-footer {
     padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 2px solid #f3f4f6;
   }
 
   .learn-more {
-    color: #667eea;
-    font-weight: 600;
+    color: #3b82f6;
+    font-weight: 700;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    transition: gap 0.3s ease;
+    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.938rem;
   }
 
   .app-card:hover .learn-more {
-    gap: 0.75rem;
+    gap: 0.875rem;
   }
 
   /* CTA Section */
   .cta-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #111827;
     padding: 5rem 1.5rem;
     text-align: center;
   }
@@ -379,16 +403,17 @@ const totalApps = Object.values(appsByCategory).reduce(
   }
 
   .cta-title {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 900;
     color: white;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .cta-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    color: #d1d5db;
+    margin-bottom: 2.5rem;
   }
 
   .cta-buttons {
@@ -401,36 +426,72 @@ const totalApps = Object.values(appsByCategory).reduce(
   .cta-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     padding: 1rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.063rem;
+    font-weight: 700;
     border-radius: 0.75rem;
     text-decoration: none;
-    transition: all 0.3s ease;
-    min-width: 180px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 200px;
     justify-content: center;
   }
 
   .cta-primary {
-    background: white;
-    color: #667eea;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   }
 
   .cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4);
   }
 
   .cta-secondary {
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     color: white;
     border: 2px solid white;
   }
 
   .cta-secondary:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: white;
+    color: #111827;
+    transform: translateY(-3px);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 
   /* Responsive */
@@ -443,6 +504,10 @@ const totalApps = Object.values(appsByCategory).reduce(
       gap: 2rem;
     }
 
+    .stat-divider {
+      display: none;
+    }
+
     .cta-buttons {
       flex-direction: column;
       align-items: center;
@@ -450,7 +515,13 @@ const totalApps = Object.values(appsByCategory).reduce(
 
     .cta-btn {
       width: 100%;
-      max-width: 300px;
+      max-width: 320px;
+    }
+
+    .category-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
   }
 </style>
